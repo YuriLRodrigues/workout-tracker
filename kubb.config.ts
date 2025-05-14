@@ -84,11 +84,6 @@ export default defineConfig({
       mutation: {
         methods: ['post', 'put', 'delete'],
       },
-      infinite: {
-        queryParam: 'next_page',
-        initialPageParam: 0,
-        cursorParam: 'nextCursor',
-      },
       query: {
         methods: ['get'],
         importPath: '@tanstack/react-query',
@@ -98,10 +93,6 @@ export default defineConfig({
           type: 'operationId',
           pattern: '',
           options: {
-            infinite: {
-              queryParam: 'pageSize',
-              initialPageParam: 0,
-            },
             query: {
               methods: ['get'],
               importPath: '@tanstack/react-query',
