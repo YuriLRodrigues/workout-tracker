@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import AuthFeatures from './components/auth-features'
-import { SignInForm } from './components/form'
+import AuthFeatures from './auth-features'
+import { SignInForm } from './form'
 
 export const metadata: Metadata = {
   title: 'Entrar | FitTrack Academia',
