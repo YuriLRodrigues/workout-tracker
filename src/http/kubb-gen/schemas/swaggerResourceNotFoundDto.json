@@ -1,0 +1,1 @@
+{"type":"object","properties":{"message":{"type":"string","default":"Resource not found"},"error":{"type":"string","default":"ResourceNotFoundError"},"statusCode":{"type":"number","default":404}},"required":["message","error","statusCode"],"x-readme-ref-name":"SwaggerResourceNotFoundDto"}

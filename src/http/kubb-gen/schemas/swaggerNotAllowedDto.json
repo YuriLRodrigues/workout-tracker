@@ -1,0 +1,1 @@
+{"type":"object","properties":{"message":{"type":"string","default":"Not allowed"},"error":{"type":"string","default":"NotAllowedError"},"statusCode":{"type":"number","default":403}},"required":["message","error","statusCode"],"x-readme-ref-name":"SwaggerNotAllowedDto"}

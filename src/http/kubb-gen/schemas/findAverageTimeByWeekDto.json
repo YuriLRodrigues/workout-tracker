@@ -1,0 +1,1 @@
+{"type":"object","properties":{"timeDiffSeconds":{"type":"number","description":"Difference in seconds compared to the previous week","example":12.5},"totalThisWeekSeconds":{"type":"number","description":"Total seconds accumulated this week","example":13600}},"required":["timeDiffSeconds","totalThisWeekSeconds"],"x-readme-ref-name":"FindAverageTimeByWeekDto"}

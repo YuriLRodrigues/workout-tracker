@@ -1,0 +1,1 @@
+{"type":"object","properties":{"id":{"type":"string","description":"Unique identifier for the log","example":"c71c2c77-5d44-4a9b-9e4b-3f0e6d6d9c55","nullable":true}},"required":["id"],"x-readme-ref-name":"FindLogTodayByExerciseIdResponseDto"}

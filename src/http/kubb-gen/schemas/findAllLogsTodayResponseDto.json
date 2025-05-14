@@ -1,0 +1,1 @@
+{"type":"object","properties":{"totalCompleted":{"type":"number","description":"Total of logs completed today"},"totalExercises":{"type":"number","description":"Total of exercises in workout","example":10}},"required":["totalCompleted","totalExercises"],"x-readme-ref-name":"FindAllLogsTodayResponseDto"}

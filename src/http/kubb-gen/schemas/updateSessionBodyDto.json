@@ -1,0 +1,1 @@
+{"type":"object","properties":{"workoutId":{"type":"string","example":"c71c2c77-5d44-4a9b-9e4b-3f0e6d6d9c55","description":"WorkoutId to be found session and update"}},"required":["workoutId"],"x-readme-ref-name":"UpdateSessionBodyDto"}

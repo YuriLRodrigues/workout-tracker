@@ -1,0 +1,1 @@
+{"type":"object","properties":{"frequency":{"type":"number","description":"Average frequency by week","example":4.2}},"required":["frequency"],"x-readme-ref-name":"FindFrequencyByWeekAndUserIdDto"}

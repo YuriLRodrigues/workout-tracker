@@ -1,0 +1,1 @@
+{"type":"object","properties":{"seriesDiff":{"type":"number","description":"Difference in series compared to the previous week","example":12.5},"thisWeekTotal":{"type":"number","description":"Series counting this week","example":13600}},"required":["seriesDiff","thisWeekTotal"],"x-readme-ref-name":"FindTotalSeriesByWeekDto"}

@@ -1,0 +1,1 @@
+{"type":"object","properties":{"avgSeconds":{"type":"number","description":"Average time in seconds","example":120},"totalSeconds":{"type":"number","description":"Total time in seconds","example":3600}},"required":["avgSeconds","totalSeconds"],"x-readme-ref-name":"FindTotalAndAvgTimeByUserIdResponseDto"}

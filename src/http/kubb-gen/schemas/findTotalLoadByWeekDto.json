@@ -1,0 +1,1 @@
+{"type":"object","properties":{"loadDiff":{"type":"number","description":"Difference in load compared to the previous week","example":12.5},"thisWeekTotal":{"type":"number","description":"Load counting this week","example":13600}},"required":["loadDiff","thisWeekTotal"],"x-readme-ref-name":"FindTotalLoadByWeekDto"}

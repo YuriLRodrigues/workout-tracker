@@ -1,0 +1,1 @@
+{"type":"object","properties":{"totalCount":{"type":"number","description":"Total count of workouts","example":120},"since":{"format":"date-time","type":"string","description":"Date of the first training session","nullable":true,"example":"2025-01-01T15:30:00Z"}},"required":["totalCount","since"],"x-readme-ref-name":"FindTotalWorkoutsCountByUserIdResponseDto"}

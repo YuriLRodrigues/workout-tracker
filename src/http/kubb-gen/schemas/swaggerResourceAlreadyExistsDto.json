@@ -1,0 +1,1 @@
+{"type":"object","properties":{"message":{"type":"string","default":"Resource already exists"},"error":{"type":"string","default":"ResourceAlweadyExistsError"},"statusCode":{"type":"number","default":409}},"required":["message","error","statusCode"],"x-readme-ref-name":"SwaggerResourceAlreadyExistsDto"}

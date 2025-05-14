@@ -1,0 +1,5 @@
+export { createExercise } from './createExercise'
+export { deleteExercise } from './deleteExercise'
+export { exerciseController } from './exerciseController'
+export { findAllExercisesByWorkoutId } from './findAllExercisesByWorkoutId'
+export { findExerciseById } from './findExerciseById'

@@ -1,0 +1,1 @@
+{"type":"object","properties":{"message":{"type":"string","example":"Exercise successfully deleted","description":"Api response message according to request"}},"required":["message"],"x-readme-ref-name":"DeleteExerciseResponseDto"}

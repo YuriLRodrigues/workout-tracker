@@ -1,0 +1,1 @@
+{"type":"object","properties":{"message":{"type":"string","default":"Bad request"},"error":{"type":"string","default":"BadRequestError"},"statusCode":{"type":"number","default":400}},"required":["message","error","statusCode"],"x-readme-ref-name":"SwaggerBadRequestDto"}
