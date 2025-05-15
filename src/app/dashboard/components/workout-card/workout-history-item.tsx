@@ -1,3 +1,4 @@
+import { ExpandableText } from '@/components/ui/expandable-text'
 import { Icon } from '@/components/ui/icon'
 import { Skeleton } from '@/components/ui/skeleton'
 
@@ -24,8 +25,14 @@ export function WorkoutHistoryItem({ name, icon, color, description, endTime, st
           <Icon name={icon} className="h-5 w-5" />
         </div>
         <div>
-          <p className="line-clamp-1 max-w-36 min-w-36 font-medium text-wrap">{name}</p>
-          <p className="text-muted-foreground line-clamp-1 max-w-36 min-w-36 text-sm text-wrap">{description}</p>
+          <ExpandableText asChild maxLines={1} type="dot">
+            <p className="max-w-36 min-w-36 font-medium text-wrap lg:max-w-full lg:min-w-0">{name}</p>
+          </ExpandableText>
+          <ExpandableText asChild maxLines={1} type="dot">
+            <p className="text-muted-foreground max-w-36 min-w-36 text-sm text-wrap lg:max-w-full lg:min-w-0">
+              {description}
+            </p>
+          </ExpandableText>
         </div>
       </div>
       <div className="text-left sm:text-right">

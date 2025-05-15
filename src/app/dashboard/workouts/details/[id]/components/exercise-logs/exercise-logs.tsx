@@ -27,7 +27,7 @@ export const ExerciseLogs = async ({ exerciseId, exerciseName }: ExerciseLogsPro
         <CardDescription className="line-clamp-2">Histórico de progresso</CardDescription>
       </CardHeader>
       <div className="grid">
-        <ScrollArea className="max-h-[300px] transition-all duration-300 hover:px-2">
+        <ScrollArea className="max-h-[250px] transition-all duration-300 hover:px-2" scrollHideDelay={0}>
           <CardContent className="flex flex-col gap-3 p-2">
             {logs.map((log) => (
               <ExerciseLogCard
@@ -97,13 +97,13 @@ export default function ExerciseLogCard({ date, maxWeight, maxSets, maxReps, eff
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-2 p-4 @xs:grid-cols-2">
+        <div className="grid grid-cols-1 gap-2 p-4 @min-[220px]:grid-cols-2 @md:grid-cols-3 @xl:grid-cols-4">
           <div className="flex flex-col items-center justify-center rounded-lg bg-blue-50 p-2">
             <div className="mb-1 flex items-center text-blue-700">
               <Weight className="mr-1 h-4 w-4" />
               <span className="text-xs font-medium">Carga Máx.</span>
             </div>
-            <p className="text-lg font-bold text-black">{formatNumberBR(maxWeight)} kg</p>
+            <p className="text-md text-center font-bold text-black">{formatNumberBR(maxWeight)} kg</p>
           </div>
 
           <div className="flex flex-col items-center justify-center rounded-lg bg-purple-50 p-2">
@@ -111,7 +111,7 @@ export default function ExerciseLogCard({ date, maxWeight, maxSets, maxReps, eff
               <BarChart3 className="mr-1 h-4 w-4" />
               <span className="text-xs font-medium">Séries</span>
             </div>
-            <p className="text-lg font-bold text-black">{formatNumberBR(maxSets)}</p>
+            <p className="text-md font-bold text-black">{formatNumberBR(maxSets)}</p>
           </div>
 
           <div className="flex flex-col items-center justify-center rounded-lg bg-teal-50 p-2">
@@ -119,7 +119,7 @@ export default function ExerciseLogCard({ date, maxWeight, maxSets, maxReps, eff
               <Repeat className="mr-1 h-4 w-4" />
               <span className="text-xs font-medium">Repetições</span>
             </div>
-            <p className="text-lg font-bold text-black">{formatNumberBR(maxReps)}</p>
+            <p className="text-md font-bold text-black">{formatNumberBR(maxReps)}</p>
           </div>
 
           <div className="flex flex-col items-center justify-center rounded-lg bg-orange-50 p-2">
@@ -128,7 +128,7 @@ export default function ExerciseLogCard({ date, maxWeight, maxSets, maxReps, eff
               <span className="text-xs font-medium">Esforço</span>
             </div>
             <div className="mx-auto flex w-full items-center justify-center gap-2">
-              <p className="text-lg font-bold text-black">{formatNumberBR(effortLevel)}/10</p>
+              <p className="text-md font-bold text-black">{formatNumberBR(effortLevel)}/10</p>
               <div
                 className={`${getEffortColor()} h-3 rounded-full transition-all`}
                 style={{ width: `${effortLevel * 5}px` }}

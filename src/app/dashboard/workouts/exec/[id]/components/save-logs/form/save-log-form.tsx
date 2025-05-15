@@ -18,9 +18,10 @@ type SaveLogFormProps = {
 }
 
 export const SaveLogForm = ({ exerciseId, executionType }: SaveLogFormProps) => {
-  const { form, handleSubmit, exerciseIsCompleted, isLoading, effortLevel, setEffortLevel } = useSaveLogForm({
-    exerciseId,
-  })
+  const { form, handleSubmit, exerciseIsCompleted, isLoading, effortLevel, setEffortLevel, isSendingRequest } =
+    useSaveLogForm({
+      exerciseId,
+    })
 
   return (
     <Form {...form}>
@@ -113,7 +114,11 @@ export const SaveLogForm = ({ exerciseId, executionType }: SaveLogFormProps) => 
           <div className="col-span-full flex w-full flex-wrap items-center justify-end">
             {isLoading && <Skeleton className="h-8 w-fit min-w-32" />}
             {!exerciseIsCompleted && !isLoading && (
-              <Button size="sm" className="flex h-8 w-fit min-w-0 items-center justify-center sm:min-w-32">
+              <Button
+                size="sm"
+                className="flex h-8 w-fit min-w-0 items-center justify-center sm:min-w-32"
+                disabled={isSendingRequest}
+              >
                 <span className="text-wrap">Completar exercício</span>
                 <Icon name="Save" className="mr-2" />
               </Button>

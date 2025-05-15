@@ -6,6 +6,7 @@ import { NumberTicker } from '@/components/magicui/number-ticker'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { ExpandableText } from '@/components/ui/expandable-text'
 import { Icon } from '@/components/ui/icon'
 import { Skeleton } from '@/components/ui/skeleton'
 
@@ -44,12 +45,12 @@ export const ExercisesList = async ({ workoutId, limit, page }: ExercisesListPro
         >
           <CardHeader className="flex flex-wrap items-start justify-between gap-3">
             <div>
-              <CardTitle className="line-clamp-1 max-w-70 text-xl font-semibold first-letter:uppercase">
-                {exercise.name}
-              </CardTitle>
-              <CardDescription className="line-clamp-2 max-w-70 first-letter:uppercase">
-                {exercise.description}
-              </CardDescription>
+              <ExpandableText maxLines={1} type="dot" asChild>
+                <CardTitle className="max-w-70 text-xl font-semibold first-letter:uppercase">{exercise.name}</CardTitle>
+              </ExpandableText>
+              <ExpandableText maxLines={2} type="dot" asChild>
+                <CardDescription className="max-w-70 first-letter:uppercase">{exercise.description}</CardDescription>
+              </ExpandableText>
             </div>
             <div className="flex items-center gap-2">
               {/* <Button

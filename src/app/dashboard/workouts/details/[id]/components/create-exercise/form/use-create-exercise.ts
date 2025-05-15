@@ -1,4 +1,5 @@
 import { useParams } from 'next/navigation'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { useToggle } from '@/hooks/use-toggle'
@@ -9,6 +10,7 @@ import { createExerciseActions } from './create-exercise.actions'
 import { CreateExerciseSchemaType, createExerciseSchema } from './schema'
 export const useCreateExerciseForm = () => {
   const { id } = useParams<{ id: string }>()
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const { toggle } = useToggle()
 
   const form = useForm<CreateExerciseSchemaType>({
@@ -29,6 +31,7 @@ export const useCreateExerciseForm = () => {
   })
 
   const onSubmit = async (data: CreateExerciseSchemaType) => {
+    setIsLoading(true)
     const {
       name,
       description,
@@ -57,6 +60,7 @@ export const useCreateExerciseForm = () => {
     if (success) {
       toast.success('Novo exercício criado com sucesso!')
       toggle(false)
+      setIsLoading(false)
       return
     }
 
@@ -71,11 +75,13 @@ export const useCreateExerciseForm = () => {
         toast.error('Erro ao criar exercício!')
         break
     }
+    setIsLoading(false)
     return
   }
 
   return {
     form,
     handleSubmit: form.handleSubmit(onSubmit),
+    isLoading,
   }
 }

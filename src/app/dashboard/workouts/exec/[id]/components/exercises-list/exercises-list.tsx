@@ -5,6 +5,7 @@ import { MetricsCard } from '@/app/dashboard/components/metrics-card'
 import { NumberTicker } from '@/components/magicui/number-ticker'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { ExpandableText } from '@/components/ui/expandable-text'
 import { Icon } from '@/components/ui/icon'
 import { Separator } from '@/components/ui/separator'
 import { Skeleton } from '@/components/ui/skeleton'
@@ -36,7 +37,9 @@ export const ExercisesList = async ({ workoutId }: ExercisesListProps) => {
           <CardHeader className="space-y-2">
             <div className="flex w-full justify-between gap-3 sm:gap-8">
               <div className="space-y-1.5">
-                <CardTitle className="line-clamp-2 first-letter:uppercase">{exercise.name}</CardTitle>
+                <ExpandableText maxLines={1} type="dot" asChild>
+                  <CardTitle className="first-letter:uppercase">{exercise.name}</CardTitle>
+                </ExpandableText>
                 <CardDescription>{mappingMuscleType[exercise.muscleType]}</CardDescription>
               </div>
               <ExerciseVideoDialog videoReference={exercise.videoReference} />

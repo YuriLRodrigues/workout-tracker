@@ -9,11 +9,12 @@ import { Textarea } from '@/components/ui/textarea'
 
 import { ExecutionType, MuscleType } from '@/@types/exercise'
 import { mappingExecutionType, mappingMuscleType } from '@/utils/mappings'
+import { AnimatePresence, motion } from 'framer-motion'
 
 import { useCreateExerciseForm } from './use-create-exercise'
 
 export const CreateExerciseForm = () => {
-  const { form, handleSubmit } = useCreateExerciseForm()
+  const { form, handleSubmit, isLoading } = useCreateExerciseForm()
 
   const exerciseType = form.watch('executionType')
 
@@ -193,10 +194,22 @@ export const CreateExerciseForm = () => {
             )}
           />
           <div className="col-span-2 flex w-full flex-wrap items-center justify-end">
-            <Button size="sm" className="h-8 w-fit min-w-32">
-              <Icon name="Wrench" className="mr-2" />
-              Criar novo exercício
-            </Button>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={isLoading ? 'loading' : 'default'}
+                initial={{ opacity: 0, y: 4 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -4 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Button size="sm" className="mt-auto h-8 w-fit min-w-32" disabled={isLoading}>
+                  {isLoading && <Icon name="LoaderCircle" className="mr-2 animate-spin" />}
+                  {!isLoading && <Icon name="Wrench" className="mr-2" />}
+                  {isLoading && 'Criando...'}
+                  {!isLoading && 'Criar novo exercício'}
+                </Button>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </form>

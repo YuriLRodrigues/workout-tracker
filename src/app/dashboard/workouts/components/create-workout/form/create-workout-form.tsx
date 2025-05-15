@@ -7,11 +7,12 @@ import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 
 import { mappingColors, mappingIcons } from '@/utils/mappings'
+import { AnimatePresence, motion } from 'framer-motion'
 
 import { useCreateWorkoutForm } from './use-create-workout'
 
 export const CreateWorkoutForm = () => {
-  const { form, handleSubmit } = useCreateWorkoutForm()
+  const { form, handleSubmit, isLoading } = useCreateWorkoutForm()
 
   return (
     <Form {...form}>
@@ -112,10 +113,22 @@ export const CreateWorkoutForm = () => {
             )}
           />
           <div className="col-span-2 flex w-full flex-wrap items-center justify-end pb-3">
-            <Button size="sm" effect="ringHover" className="h-8 w-fit min-w-32">
-              Criar treino
-              <Icon name="Settings" className="mr-2" />
-            </Button>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={isLoading ? 'loading' : 'default'}
+                initial={{ opacity: 0, y: 4 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -4 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Button effect="ringHover" size="sm" className="mt-auto h-8 w-fit min-w-32" disabled={isLoading}>
+                  {isLoading && <Icon name="LoaderCircle" className="mr-2 animate-spin" />}
+                  {!isLoading && <Icon name="Settings" className="mr-2" />}
+                  {isLoading && 'Criando...'}
+                  {!isLoading && 'Criar novo treino'}
+                </Button>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </form>

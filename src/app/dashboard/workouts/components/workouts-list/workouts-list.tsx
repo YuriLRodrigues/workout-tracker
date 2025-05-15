@@ -4,6 +4,7 @@ import { MetricsCard } from '../../../components/metrics-card'
 import { Container } from '@/components/interface/container'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { ExpandableText } from '@/components/ui/expandable-text'
 import { Icon } from '@/components/ui/icon'
 import { Skeleton } from '@/components/ui/skeleton'
 
@@ -50,10 +51,13 @@ export const WorkoutsList = async ({ limit, page }: WorkoutsListProps) => {
                     <Icon name={iconName} className={cn('h-5 w-5', workout.color)} />
                   </div>
                   <div className="space-y-1">
-                    <CardTitle className="line-clamp-2 first-letter:uppercase">{workout.name}</CardTitle>
-                    <CardDescription className="line-clamp-2 first-letter:uppercase">
-                      {workout.description}
-                    </CardDescription>
+                    <ExpandableText maxLines={1} type="dot" asChild>
+                      <CardTitle className="first-letter:uppercase">{workout.name}</CardTitle>
+                    </ExpandableText>
+
+                    <ExpandableText asChild maxLines={1} type="dot">
+                      <CardDescription className="first-letter:uppercase">{workout.description}</CardDescription>
+                    </ExpandableText>
                   </div>
                 </div>
                 <div className="space-y-3">

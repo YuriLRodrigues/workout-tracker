@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { useToggle } from '@/hooks/use-toggle'
@@ -8,6 +9,7 @@ import { createWorkoutActions } from './create-workout.actions'
 import { CreateWorkoutSchemaType, createWorkoutSchema } from './schema'
 export const useCreateWorkoutForm = () => {
   const { toggle } = useToggle()
+  const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const form = useForm<CreateWorkoutSchemaType>({
     resolver: zodResolver(createWorkoutSchema),
@@ -23,6 +25,7 @@ export const useCreateWorkoutForm = () => {
   })
 
   const onSubmit = async (data: CreateWorkoutSchemaType) => {
+    setIsLoading(true)
     const { color, description, icon, name, bannerId } = data
 
     const { success, error } = await createWorkoutActions({ color, description, icon, name, bannerId })
@@ -30,6 +33,7 @@ export const useCreateWorkoutForm = () => {
     if (success) {
       toast.success('Novo treino criado com sucesso!')
       toggle(false)
+      setIsLoading(false)
       return
     }
 
@@ -44,11 +48,13 @@ export const useCreateWorkoutForm = () => {
         toast.error('Erro ao criar treino!')
         break
     }
+    setIsLoading(false)
     return
   }
 
   return {
     form,
     handleSubmit: form.handleSubmit(onSubmit),
+    isLoading,
   }
 }

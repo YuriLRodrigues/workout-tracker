@@ -22,8 +22,8 @@ export function WorkoutCard({ name, description, iconName, color, href }: Workou
         <div className={cn('bg-card flex items-center justify-center rounded-full p-2')}>
           <Icon name={iconName} className={`h-6 w-6 ${color}`} />
         </div>
-        <span className="line-clamp-1 text-wrap first-letter:uppercase">{name}</span>
-        <span className="text-muted-foreground line-clamp-1 text-xs text-wrap first-letter:uppercase">
+        <span className="line-clamp-2 text-center text-wrap first-letter:uppercase">{name}</span>
+        <span className="text-muted-foreground line-clamp-2 text-center text-xs text-wrap first-letter:uppercase">
           {description}
         </span>
       </Link>

@@ -3,6 +3,7 @@ import { Suspense } from 'react'
 
 import { Container } from '@/components/interface/container'
 import { Button } from '@/components/ui/button'
+import { ExpandableText } from '@/components/ui/expandable-text'
 import { Icon } from '@/components/ui/icon'
 import { Skeleton } from '@/components/ui/skeleton'
 
@@ -34,8 +35,12 @@ export const WorkoutHeader = async ({ id }: WorkoutHeaderProps) => {
             <Icon name={icon as keyof typeof icons} className="h-5 w-5" />
           </div>
           <div className="space-y-2">
-            <Container.Title className="line-clamp-2">{name}</Container.Title>
-            <Container.Description className="line-clamp-2">{description}</Container.Description>
+            <ExpandableText maxLines={2} type="dot" asChild>
+              <Container.Title>{name}</Container.Title>
+            </ExpandableText>
+            <ExpandableText maxLines={2} type="dot" asChild>
+              <Container.Description>{description}</Container.Description>
+            </ExpandableText>
           </div>
         </div>
       </div>

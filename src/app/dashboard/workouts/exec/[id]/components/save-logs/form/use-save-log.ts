@@ -19,6 +19,7 @@ export const useSaveLogForm = ({ exerciseId }: useSaveLogFormProps) => {
   const { toggle } = useToggle()
   const { id } = useParams<{ id: string }>()
   const [effortLevel, setEffortLevel] = useState<number>(5)
+  const [isSendingRequest, setIsSendingRequest] = useState<boolean>(false)
 
   const { data, isLoading } = useFindLogTodayByExerciseId({ exerciseId })
   const exerciseIsCompleted = !!data
@@ -37,6 +38,7 @@ export const useSaveLogForm = ({ exerciseId }: useSaveLogFormProps) => {
   })
 
   const onSubmit = async (data: SaveLogSchemaType) => {
+    setIsSendingRequest(true)
     const { averageRestTime, maxRepeat, maxSeries, maxWeight, notes } = data
 
     const { success, error } = await saveLogActions({
@@ -55,6 +57,7 @@ export const useSaveLogForm = ({ exerciseId }: useSaveLogFormProps) => {
       await queryClient.invalidateQueries({ queryKey: findLogTodayByExerciseIdQueryKey({ exerciseId }) })
       toggle(false)
       clear()
+      setIsSendingRequest(false)
       return
     }
 
@@ -69,6 +72,7 @@ export const useSaveLogForm = ({ exerciseId }: useSaveLogFormProps) => {
         toast.error('Erro ao criar log!')
         break
     }
+    setIsSendingRequest(false)
     return
   }
 
@@ -89,5 +93,6 @@ export const useSaveLogForm = ({ exerciseId }: useSaveLogFormProps) => {
     isLoading,
     setEffortLevel,
     effortLevel,
+    isSendingRequest,
   }
 }
