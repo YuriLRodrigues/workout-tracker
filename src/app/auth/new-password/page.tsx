@@ -1,10 +1,11 @@
 import Image from 'next/image'
+import { Suspense } from 'react'
 
 import { NewPasswordForm } from './components/form'
 import Header from './components/header'
 import { ScrollArea } from '@/components/ui/scroll-area'
 
-export default function ForgotPasswordPage() {
+export default function NewPasswordPage() {
   return (
     <main className="grid h-screen max-h-screen items-center justify-center overflow-hidden">
       <Image
@@ -22,7 +23,9 @@ export default function ForgotPasswordPage() {
             scrollHideDelay={550}
           >
             <Header />
-            <NewPasswordForm />
+            <Suspense fallback={null}>
+              <NewPasswordForm />
+            </Suspense>
           </ScrollArea>
         </div>
       </div>

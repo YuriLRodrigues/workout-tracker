@@ -1,5 +1,5 @@
-import { useSearchParams } from 'next/navigation'
-import { useRouter } from 'next/navigation'
+'use client'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -8,21 +8,18 @@ import { toast } from 'sonner'
 import { newPasswordActions } from './new-password.actions'
 import { newPasswordSchema, NewPasswordSchemaProps } from './schema'
 
-type useNewPasswordProps = {
-  defaultValues?: Partial<NewPasswordSchemaProps>
-}
-
-export const useNewPassword = ({ defaultValues }: useNewPasswordProps = {}) => {
+export const useNewPassword = () => {
   const router = useRouter()
-  const recoveryPasswordToken = useSearchParams().get('recovery-password-token')
+  const searchParams = useSearchParams()
+  const recoveryPasswordToken = searchParams?.get('recovery-password-token')
 
   const form = useForm<NewPasswordSchemaProps>({
     resolver: zodResolver(newPasswordSchema),
     reValidateMode: 'onChange',
     mode: 'all',
     defaultValues: {
-      confirmPassword: defaultValues?.confirmPassword ?? '',
-      newPassword: defaultValues?.newPassword ?? '',
+      confirmPassword: '',
+      newPassword: '',
     },
   })
 
