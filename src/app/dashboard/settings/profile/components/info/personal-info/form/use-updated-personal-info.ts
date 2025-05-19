@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { UserGender } from '@/@types/user'
@@ -13,6 +13,7 @@ import { updatePersonalInfoActions } from './update-personal-info.actions'
 export const useUpdatePersonalInfoForm = () => {
   const { toggle } = useToggle()
   const { data, isLoading } = useMe()
+  const [requestIsSending, setRequestIsSending] = useState<boolean>(false)
 
   const form = useForm<UpdatePersonalInfoSchemaType>({
     resolver: zodResolver(updatePersonalInfoSchema),
@@ -47,6 +48,7 @@ export const useUpdatePersonalInfoForm = () => {
   }, [isLoading, data])
 
   const onSubmit = async (data: UpdatePersonalInfoSchemaType) => {
+    setRequestIsSending(true)
     const { birthDate, gender, lastName, name, phone } = data
 
     const { success, error } = await updatePersonalInfoActions({
@@ -60,6 +62,7 @@ export const useUpdatePersonalInfoForm = () => {
     if (success) {
       toast.success('Informações pessoais atualizadas!')
       toggle(false)
+      setRequestIsSending(false)
       return
     }
 
@@ -71,6 +74,7 @@ export const useUpdatePersonalInfoForm = () => {
         toast.error('Erro ao atualizar informações pessoais')
         break
     }
+    setRequestIsSending(false)
     return
   }
 
@@ -78,5 +82,6 @@ export const useUpdatePersonalInfoForm = () => {
     form,
     handleSubmit: form.handleSubmit(onSubmit),
     isLoading,
+    requestIsSending,
   }
 }

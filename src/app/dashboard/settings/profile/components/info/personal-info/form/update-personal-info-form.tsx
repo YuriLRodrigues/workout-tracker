@@ -16,11 +16,12 @@ import { cn } from '@/lib/utils'
 import { mappingGender } from '@/utils/mappings'
 import { format } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
+import { AnimatePresence, motion } from 'framer-motion'
 
 import { useUpdatePersonalInfoForm } from './use-updated-personal-info'
 
 export const UpdatePersonalInfoForm = () => {
-  const { form, handleSubmit, isLoading } = useUpdatePersonalInfoForm()
+  const { form, handleSubmit, isLoading, requestIsSending } = useUpdatePersonalInfoForm()
 
   if (isLoading) return <UpdatePersonalInfoFormSkeleton />
 
@@ -153,10 +154,22 @@ export const UpdatePersonalInfoForm = () => {
           />
         </div>
 
-        <Button size="sm" className="mt-auto h-8 w-full min-w-32">
-          <Icon name="Save" className="mr-2" />
-          Salvar alterações
-        </Button>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={requestIsSending ? 'loading' : 'default'}
+            initial={{ opacity: 0, y: 4 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -4 }}
+            transition={{ duration: 0.2 }}
+          >
+            <Button size="sm" className="mt-auto h-8 w-full min-w-32" disabled={requestIsSending}>
+              {requestIsSending && <Icon name="ClockFading" className="mr-2" />}
+              {!requestIsSending && <Icon name="Save" className="mr-2" />}
+              {requestIsSending && 'Salvando...'}
+              {!requestIsSending && 'Salvar alterações'}
+            </Button>
+          </motion.div>
+        </AnimatePresence>
       </form>
     </Form>
   )

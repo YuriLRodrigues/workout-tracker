@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { useToggle } from '@/hooks/use-toggle'
@@ -12,6 +12,7 @@ import { CreatePhysicalStatsSchemaType, createPhysicalStatsSchema } from './sche
 
 export const usePhysicalStatsForm = () => {
   const { toggle } = useToggle()
+  const [requestIsSending, setRequestIsSending] = useState<boolean>(false)
 
   const { data: physicalStats, isLoading } = useFindPhysicalStatsByUserId({
     query: { queryKey: ['findPhysicalStatsByUserId'] },
@@ -56,6 +57,7 @@ export const usePhysicalStatsForm = () => {
   }, [isLoading, physicalStats?.data])
 
   const onSubmit = async (data: CreatePhysicalStatsSchemaType) => {
+    setRequestIsSending(true)
     const { age, goal, height, weight, bodyFat, muscleMass } = data
 
     const { success, error } = await createOrUpdatePhysicalStatsActions({
@@ -71,6 +73,7 @@ export const usePhysicalStatsForm = () => {
       toast.success('Informações físicas atualizadas!')
       await queryClient.invalidateQueries({ queryKey: ['findPhysicalStatsByUserId'] })
       toggle(false)
+      setRequestIsSending(false)
       return
     }
 
@@ -82,6 +85,7 @@ export const usePhysicalStatsForm = () => {
         toast.error('Erro ao atualizar informações físicas')
         break
     }
+    setRequestIsSending(false)
     return
   }
 
@@ -89,5 +93,6 @@ export const usePhysicalStatsForm = () => {
     form,
     handleSubmit: form.handleSubmit(onSubmit),
     isLoading,
+    requestIsSending,
   }
 }

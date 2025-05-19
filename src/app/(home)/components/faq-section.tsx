@@ -6,56 +6,79 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import Animate from '@/components/ui/animate'
 
 import { motion, useInView, Variants } from 'framer-motion'
-import { Dumbbell, Calendar, Trophy, Clock, Shield, Smartphone, Users, BarChart } from 'lucide-react'
+import {
+  Dumbbell,
+  Smartphone,
+  BarChart,
+  TrendingUp,
+  BarChart2,
+  UserCheck,
+  Video,
+  History,
+  ClipboardList,
+  PlusCircle,
+} from 'lucide-react'
 
 const faqs = [
   {
     question: 'Como posso começar a salvar meus treinos?',
     answer:
-      "Basta criar uma conta, acessar o painel principal e clicar em 'Novo Treino'. Você pode inserir todos os detalhes do seu treino, incluindo exercícios, séries, repetições e pesos utilizados.",
+      "Basta criar uma conta, acessar o painel principal e clicar em 'Criar Treino'. Você pode inserir todos os detalhes do seu treino, incluindo exercícios, séries, repetições e pesos utilizados.",
     icon: <Dumbbell className="h-5 w-5" />,
   },
   {
     question: 'É possível acompanhar meu progresso ao longo do tempo?',
     answer:
-      'Sim! Nosso sistema oferece gráficos e estatísticas detalhadas que mostram sua evolução em cada exercício, incluindo aumento de peso, volume total e frequência de treinos.',
+      'Sim! Nosso sistema exibe todos os registros de treino no seu histórico, permitindo acompanhar sua evolução detalhadamente — incluindo os pesos utilizados, número de repetições, volume total e frequência dos treinos. Em breve, também teremos gráficos de estatísticas e progresso para uma visualização ainda mais clara da sua evolução.',
     icon: <BarChart className="h-5 w-5" />,
   },
   {
     question: 'Posso acessar meus treinos em diferentes dispositivos?',
     answer:
-      'Absolutamente. Nossa plataforma é totalmente responsiva e sincronizada na nuvem, permitindo que você acesse seus treinos de qualquer dispositivo, seja smartphone, tablet ou computador.',
+      'Absolutamente. Nossa plataforma é totalmente responsiva e sincronizada na nuvem, permitindo que você acesse seus treinos de qualquer dispositivo, seja smartphone, tablet ou computador, apenas utilizando a mesma conta registrada.',
     icon: <Smartphone className="h-5 w-5" />,
   },
   {
-    question: 'Como funciona o sistema de lembretes de treino?',
+    question: 'Posso criar meus próprios exercícios?',
     answer:
-      'Você pode configurar lembretes personalizados para seus dias de treino. O sistema enviará notificações nos horários escolhidos, garantindo que você nunca perca uma sessão.',
-    icon: <Clock className="h-5 w-5" />,
+      'Sim! Você pode cadastrar exercícios personalizados com nome, grupo muscular, vídeo de referência e descrição, para adaptar seus treinos da forma que preferir.',
+    icon: <PlusCircle className="h-5 w-5" />,
   },
   {
-    question: 'É possível compartilhar meus treinos com amigos ou treinador?',
+    question: 'Consigo registrar todos os detalhes da execução de um treino?',
     answer:
-      'Sim, você pode compartilhar seus treinos e progresso com amigos ou seu treinador pessoal. Basta gerar um link de compartilhamento ou convidá-los diretamente pelo email.',
-    icon: <Users className="h-5 w-5" />,
+      'Com certeza. Você pode registrar todas as execuções dos exercícios com detalhes como carga utilizada, número de séries, repetições e observações específicas para cada sessão.',
+    icon: <ClipboardList className="h-5 w-5" />,
   },
   {
-    question: 'Meus dados estão seguros na plataforma?',
+    question: 'Existe um histórico dos meus treinos anteriores?',
     answer:
-      'Absolutamente. Utilizamos criptografia de ponta a ponta e seguimos rigorosos protocolos de segurança para garantir que seus dados pessoais e de treino estejam sempre protegidos.',
-    icon: <Shield className="h-5 w-5" />,
+      'Sim! Todos os seus treinos e execuções ficam salvos no histórico. Você pode acessá-los a qualquer momento para revisar seu desempenho anterior e acompanhar sua evolução.',
+    icon: <History className="h-5 w-5" />,
   },
   {
-    question: 'Posso criar rotinas de treino semanais?',
+    question: 'Posso adicionar vídeos aos exercícios?',
     answer:
-      'Sim, você pode criar e salvar rotinas completas para diferentes dias da semana. Isso facilita o acompanhamento do seu programa de treinamento e garante que você siga uma progressão adequada.',
-    icon: <Calendar className="h-5 w-5" />,
+      'Sim! Ao criar um exercício, você pode adicionar um link de vídeo como referência de execução correta, facilitando a lembrança da técnica durante o treino.',
+    icon: <Video className="h-5 w-5" />,
   },
   {
-    question: 'Existe algum sistema de recompensas ou desafios?',
+    question: 'O sistema terá integração com personal trainers?',
     answer:
-      "Sim! Temos um sistema de conquistas e desafios que tornam sua jornada fitness mais divertida. Complete objetivos como 'treinar 7 dias seguidos' ou 'bater seu recorde pessoal' para ganhar distintivos exclusivos.",
-    icon: <Trophy className="h-5 w-5" />,
+      'Estamos desenvolvendo uma funcionalidade que permitirá a conexão com personal trainers. Eles poderão acompanhar seus treinos, fornecer feedback personalizado e ajustar seus planos de acordo com seu desempenho.',
+    icon: <UserCheck className="h-5 w-5" />,
+  },
+  {
+    question: 'Haverá gráficos de estatísticas e evolução?',
+    answer:
+      'Sim! Em breve, o sistema contará com gráficos detalhados que mostrarão sua evolução ao longo do tempo, incluindo progressão de cargas, frequência de treinos e outros indicadores-chave de desempenho.',
+    icon: <TrendingUp className="h-5 w-5" />,
+  },
+  {
+    question: 'Será possível comparar meu desempenho com outros usuários?',
+    answer:
+      'Sim! Em breve, você poderá comparar seu desempenho com amigos ou outros usuários da plataforma, promovendo uma competição saudável e incentivando melhorias contínuas.',
+    icon: <BarChart2 className="h-5 w-5" />,
   },
 ]
 

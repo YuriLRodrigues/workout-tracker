@@ -33,6 +33,7 @@ export const saveLogSchema = z.object({
     .string({
       invalid_type_error: 'As observações devem ser um texto.',
     })
+    .max(255, 'Notas podem conter no máximo 255 caracteres')
     .optional(),
 })
 

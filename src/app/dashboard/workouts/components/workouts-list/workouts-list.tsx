@@ -13,6 +13,8 @@ import { cn } from '@/lib/utils'
 import { icons } from 'lucide-react'
 
 import { DeleteWorkout, DeleteWorkoutSkeleton } from './delete-workout'
+import { EditWorkout, EditWorkoutSkeleton } from './edit-workout'
+import { EditWorkoutForm } from './edit-workout/form'
 
 type WorkoutsListProps = {
   limit?: number
@@ -45,7 +47,7 @@ export const WorkoutsList = async ({ limit, page }: WorkoutsListProps) => {
             className="from-background to-muted/30 group animate-fade-up animate-once h-full border-none bg-gradient-to-br shadow-md transition-all hover:shadow-lg"
           >
             <CardHeader>
-              <div className="flex items-start justify-between gap-2">
+              <div className="flex flex-wrap items-start justify-between gap-2 gap-y-4">
                 <div className="flex items-center gap-3">
                   <div className={`rounded-full p-2 ${workout.color}`}>
                     <Icon name={iconName} className={cn('h-5 w-5', workout.color)} />
@@ -54,16 +56,23 @@ export const WorkoutsList = async ({ limit, page }: WorkoutsListProps) => {
                     <ExpandableText maxLines={1} type="dot" asChild>
                       <CardTitle className="first-letter:uppercase">{workout.name}</CardTitle>
                     </ExpandableText>
-
                     <ExpandableText asChild maxLines={1} type="dot">
                       <CardDescription className="first-letter:uppercase">{workout.description}</CardDescription>
                     </ExpandableText>
                   </div>
                 </div>
-                <div className="space-y-3">
-                  {/* <Button variant="ghost" size="icon" className="group-hover:animate-caret-blink transition-all">
-                    <Icon name="Pencil" className="size-4" />
-                  </Button> */}
+                <div className="flex items-center gap-2">
+                  <EditWorkout>
+                    <EditWorkoutForm
+                      workoutId={workout.id}
+                      defaultValues={{
+                        color: workout.color,
+                        description: workout.description,
+                        icon: workout.icon,
+                        name: workout.name,
+                      }}
+                    />
+                  </EditWorkout>
                   <DeleteWorkout id={workout.id} />
                 </div>
               </div>
@@ -139,21 +148,24 @@ export const WorkoutsListSkeleton = () => {
             className="from-background to-muted/30 group animate-fade-up animate-once border-none bg-gradient-to-br shadow-md transition-all hover:shadow-lg"
           >
             <CardHeader>
-              <div className="flex items-start justify-between">
+              <div className="flex flex-wrap items-start justify-between gap-2 gap-y-4">
                 <div className="flex items-center gap-3">
                   <div className="rounded-full p-2">
                     <Skeleton className="h-5 w-5" />
                   </div>
                   <div className="space-y-1">
                     <CardTitle>
-                      <Skeleton className="h-5 w-20" />
+                      <Skeleton className="h-5 w-22" />
                     </CardTitle>
                     <CardDescription className="line-clamp-2">
-                      <Skeleton className="h-4 w-32" />
+                      <Skeleton className="h-4 w-44" />
                     </CardDescription>
                   </div>
                 </div>
-                <DeleteWorkoutSkeleton />
+                <div className="flex items-center gap-2">
+                  <EditWorkoutSkeleton />
+                  <DeleteWorkoutSkeleton />
+                </div>
               </div>
             </CardHeader>
             <CardContent className="mt-auto flex flex-col gap-y-5">

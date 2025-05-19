@@ -8,10 +8,12 @@ import { RequiredFieldAsterisk } from '@/components/ui/required-field-asterisk'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Textarea } from '@/components/ui/textarea'
 
+import { AnimatePresence, motion } from 'framer-motion'
+
 import { usePhysicalStatsForm } from './use-physical-stats-form'
 
 export const PhysicalStatsForm = () => {
-  const { form, handleSubmit, isLoading } = usePhysicalStatsForm()
+  const { form, handleSubmit, isLoading, requestIsSending } = usePhysicalStatsForm()
 
   if (isLoading) return <PhysicalStatsFormSkeleton />
 
@@ -45,7 +47,7 @@ export const PhysicalStatsForm = () => {
                   Peso (kg) <RequiredFieldAsterisk />
                 </FormLabel>
                 <FormControl>
-                  <Input placeholder="Insira o seu peso" {...field} />
+                  <Input type="number" placeholder="Insira o seu peso" {...field} />
                 </FormControl>
                 <div className="min-h-[20px]">
                   <FormMessage />
@@ -62,7 +64,7 @@ export const PhysicalStatsForm = () => {
                   Idade <RequiredFieldAsterisk />
                 </FormLabel>
                 <FormControl>
-                  <Input placeholder="Insira a sua idade" {...field} />
+                  <Input type="number" placeholder="Insira a sua idade" {...field} />
                 </FormControl>
                 <div className="min-h-[20px]">
                   <FormMessage />
@@ -123,10 +125,22 @@ export const PhysicalStatsForm = () => {
           />
         </div>
 
-        <Button size="sm" className="mt-auto h-8 w-full min-w-32">
-          <Icon name="Save" className="mr-2" />
-          Salvar alterações
-        </Button>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={requestIsSending ? 'loading' : 'default'}
+            initial={{ opacity: 0, y: 4 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -4 }}
+            transition={{ duration: 0.2 }}
+          >
+            <Button size="sm" className="mt-auto h-8 w-full min-w-32" disabled={requestIsSending}>
+              {requestIsSending && <Icon name="ClockFading" className="mr-2" />}
+              {!requestIsSending && <Icon name="Save" className="mr-2" />}
+              {requestIsSending && 'Salvando...'}
+              {!requestIsSending && 'Salvar alterações'}
+            </Button>
+          </motion.div>
+        </AnimatePresence>
       </form>
     </Form>
   )

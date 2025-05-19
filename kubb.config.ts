@@ -8,8 +8,7 @@ import { pluginZod } from '@kubb/plugin-zod'
 export default defineConfig({
   name: 'wt-kubb',
   input: {
-    path: 'https://yuri-rodrigues-workout-tracker-backend.pd8edx.easypanel.host/swagger/docs/swagger.json',
-    // path: 'http://localhost:7777/swagger/docs/swagger.json',
+    path: 'http://localhost:7777/swagger/docs/swagger.json',
   },
   output: {
     path: './src/http/kubb-gen',

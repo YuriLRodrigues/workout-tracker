@@ -32,12 +32,21 @@ export const DeleteExerciseButton = ({ id }: DeleteExerciseButtonProps) => {
     }
   }
 
+  const handleConfirmDeleteExercise = () => {
+    toast.warning('Deseja realmente deletar este exercício?', {
+      action: {
+        label: 'Confirmar',
+        onClick: handleDeleteExercise,
+      },
+    })
+  }
+
   return (
     <Button
       variant="destructive"
       size="icon"
       className="hover:bg-destructive/10 hover:text-destructive size-10 transition-colors"
-      onClick={handleDeleteExercise}
+      onClick={handleConfirmDeleteExercise}
     >
       <Icon name="Trash" className="h-4 w-4" />
     </Button>

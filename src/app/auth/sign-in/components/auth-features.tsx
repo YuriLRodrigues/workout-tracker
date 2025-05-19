@@ -1,12 +1,9 @@
 import { CheckCircle } from 'lucide-react'
 
 const features = [
+  'Crie treinos personalizados',
   'Acompanhe seu progresso de treino',
-  'Acesse treinamento personalizados',
-  'Agende aulas e sessões',
-  'Monitore seus objetivos de condicionamento físico',
-  'Crie mais de 2 treinos (Plano Premium)',
-  'Tenha um personal trainer para desenvolver seus treinos e monitorar seu histórico (Plano Premium)',
+  'Monitore seus registros de treinos',
 ]
 
 export default function AuthFeatures() {

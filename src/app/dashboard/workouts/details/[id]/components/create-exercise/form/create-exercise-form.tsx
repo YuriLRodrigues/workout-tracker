@@ -204,7 +204,7 @@ export const CreateExerciseForm = () => {
               >
                 <Button size="sm" className="mt-auto h-8 w-fit min-w-32" disabled={isLoading}>
                   {isLoading && <Icon name="LoaderCircle" className="mr-2 animate-spin" />}
-                  {!isLoading && <Icon name="Wrench" className="mr-2" />}
+                  {!isLoading && <Icon name="Settings" className="mr-2" />}
                   {isLoading && 'Criando...'}
                   {!isLoading && 'Criar novo exercício'}
                 </Button>

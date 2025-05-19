@@ -71,7 +71,7 @@ export const ChangePasswordForm = () => {
             exit={{ opacity: 0, y: -4 }}
             transition={{ duration: 0.2 }}
           >
-            <Button size="sm" className="mt-auto h-8 w-fit min-w-32">
+            <Button size="sm" className="mt-auto h-8 w-fit min-w-32" disabled={isLoading}>
               {isLoading && <Icon name="ClockFading" className="mr-2" />}
               {!isLoading && <Icon name="LockKeyhole" className="mr-2" />}
               {isLoading && 'Atualizando...'}

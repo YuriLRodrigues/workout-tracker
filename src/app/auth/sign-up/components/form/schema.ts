@@ -2,9 +2,11 @@ import { z } from 'zod'
 
 export const signUpSchema = z
   .object({
-    password: z.string().regex(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{6,}$/, { message: 'Senha inválida.' }),
+    password: z
+      .string({ required_error: 'Senha é obrigatória.' })
+      .regex(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{6,}$/, { message: 'Senha inválida.' }),
     confirmPassword: z
-      .string()
+      .string({ required_error: 'Confirmação de senha é obrigatória.' })
       .regex(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{6,}$/, { message: 'Senha inválida.' }),
     email: z
       .string({

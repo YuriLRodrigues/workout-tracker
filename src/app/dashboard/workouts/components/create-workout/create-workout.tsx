@@ -39,9 +39,7 @@ export const CreateWorkout = () => {
         <DialogContent className="lg:max-w-3xl">
           <DialogHeader>
             <DialogTitle>Crie o seu treino personalizado aqui</DialogTitle>
-            <DialogDescription>
-              Informe os dados do seu treino e selecione os exercícios que deseja incluir.
-            </DialogDescription>
+            <DialogDescription>Informe os dados do seu treino a ser criado.</DialogDescription>
           </DialogHeader>
           <ScrollArea className="max-h-screen w-full pr-3">
             <CreateWorkoutForm />
@@ -63,9 +61,7 @@ export const CreateWorkout = () => {
         <DrawerContent>
           <DrawerHeader>
             <DrawerTitle>Crie o seu treino personalizado aqui</DrawerTitle>
-            <DrawerDescription>
-              Informe os dados do seu treino e selecione os exercícios que deseja incluir.
-            </DrawerDescription>
+            <DrawerDescription>Informe os dados do seu treino a ser criado.</DrawerDescription>
           </DrawerHeader>
           <DrawerFooter className="max-h-[calc(100vh-100px)] w-full">
             <div className="grid">

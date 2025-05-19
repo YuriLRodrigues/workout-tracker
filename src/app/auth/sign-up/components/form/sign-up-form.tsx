@@ -10,6 +10,8 @@ import { Icon } from '@/components/ui/icon'
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
 
+import { AnimatePresence, motion } from 'framer-motion'
+
 import { UseSignUpForm } from './use-sign-up'
 
 export function SignUpForm() {
@@ -103,16 +105,22 @@ export function SignUpForm() {
           />
 
           <div className="flex flex-col space-y-4">
-            <Button
-              type="submit"
-              icon={<Icon name="Check" />}
-              iconPlacement="left"
-              effect="ringHover"
-              className="h-8"
-              disabled={isSubmitting}
-            >
-              Criar conta
-            </Button>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={isSubmitting ? 'loading' : 'default'}
+                initial={{ opacity: 0, y: 4 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -4 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Button size="sm" className="mt-auto h-8 w-full min-w-32" disabled={isSubmitting}>
+                  {isSubmitting && <Icon name="ClockFading" className="mr-2 animate-pulse" />}
+                  {!isSubmitting && <Icon name="Check" className="mr-2" />}
+                  {isSubmitting && 'Criando...'}
+                  {!isSubmitting && 'Criar conta'}
+                </Button>
+              </motion.div>
+            </AnimatePresence>
 
             <div className="relative flex items-center justify-center">
               <Separator className="w-full" />

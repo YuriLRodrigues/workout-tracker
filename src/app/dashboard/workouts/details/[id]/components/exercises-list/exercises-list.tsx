@@ -10,10 +10,13 @@ import { ExpandableText } from '@/components/ui/expandable-text'
 import { Icon } from '@/components/ui/icon'
 import { Skeleton } from '@/components/ui/skeleton'
 
+import { ExecutionType, MuscleType } from '@/@types/exercise'
 import { findAllExercisesByWorkoutId } from '@/http/kubb-gen'
 
 import { DeleteExerciseButton } from '../delete-exercise/delete-exercise'
 import { ExerciseLogs, ExerciseLogsSkeleton } from '../exercise-logs'
+import { UpdateExercise } from '../update-exercise'
+import { UpdateExerciseForm } from '../update-exercise/form'
 
 type ExercisesListProps = {
   workoutId: string
@@ -53,13 +56,21 @@ export const ExercisesList = async ({ workoutId, limit, page }: ExercisesListPro
               </ExpandableText>
             </div>
             <div className="flex items-center gap-2">
-              {/* <Button
-                variant="secondary"
-                size="icon"
-                className="hover:text-primary hover:bg-card/10 size-10 transition-colors"
-              >
-                <Icon name="Pencil" className="h-4 w-4" />
-              </Button> */}
+              <UpdateExercise>
+                <UpdateExerciseForm
+                  exerciseId={exercise.id}
+                  defaultValues={{
+                    description: exercise.description,
+                    executionType: exercise.executionType as ExecutionType,
+                    muscleType: exercise.muscleType as MuscleType,
+                    name: exercise.name,
+                    targetRepetitions: exercise.targetRepetitions,
+                    targetResTime: exercise.targetResTime,
+                    targetSets: exercise.targetSets,
+                    videoReference: exercise.videoReference,
+                  }}
+                />
+              </UpdateExercise>
               <DeleteExerciseButton id={exercise.id} />
             </div>
           </CardHeader>

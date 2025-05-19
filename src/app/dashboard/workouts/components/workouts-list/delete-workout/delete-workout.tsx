@@ -11,7 +11,7 @@ type DeleteWorkoutProps = {
 }
 
 export const DeleteWorkout = ({ id }: DeleteWorkoutProps) => {
-  const handleDelete = async () => {
+  const handleDeleteWorkout = async () => {
     const { success, error } = await deleteWorkoutActions({ id })
 
     if (success) {
@@ -33,9 +33,18 @@ export const DeleteWorkout = ({ id }: DeleteWorkoutProps) => {
     return
   }
 
+  const handleConfirmDeleteWorkout = () => {
+    toast.warning('Deseja realmente deletar este treino?', {
+      action: {
+        label: 'Confirmar',
+        onClick: handleDeleteWorkout,
+      },
+    })
+  }
+
   return (
     <Button
-      onClick={handleDelete}
+      onClick={handleConfirmDeleteWorkout}
       variant="destructive"
       size="icon"
       className="hover:bg-destructive/10 text-destructive size-10 transition-colors"
