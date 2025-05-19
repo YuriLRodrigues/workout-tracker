@@ -311,6 +311,30 @@ export const mappingMuscleType: Record<MuscleType, ReactNode> = {
       <span>Corpo inteiro</span>
     </div>
   ),
+  [MuscleType.GLUTES]: (
+    <div className="flex items-center gap-2">
+      <Icon name="Cherry" className="h-5 w-5" />
+      <span>Glúteos</span>
+    </div>
+  ),
+  [MuscleType.HAMSTRINGS]: (
+    <div className="flex items-center gap-2">
+      <Icon name="MoveDown" className="h-5 w-5" />
+      <span>Posterior de coxa</span>
+    </div>
+  ),
+  [MuscleType.QUADRICEPS]: (
+    <div className="flex items-center gap-2">
+      <Icon name="MoveUp" className="h-5 w-5" />
+      <span>Quadríceps</span>
+    </div>
+  ),
+  [MuscleType.ADDUCTORS_ABDUCTORS]: (
+    <div className="flex items-center gap-2">
+      <Icon name="StretchHorizontal" className="h-5 w-5" />
+      <span>Coxa interna/externa</span>
+    </div>
+  ),
 }
 
 export const mappingExecutionType: Record<ExecutionType, ReactNode> = {
