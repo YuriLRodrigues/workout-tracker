@@ -1,0 +1,1 @@
+{"type":"object","properties":{"message":{"type":"string","example":"Workout successfully updated","description":"Api response message according to request"}},"required":["message"],"x-readme-ref-name":"UpdateWorkoutResponseDto"}

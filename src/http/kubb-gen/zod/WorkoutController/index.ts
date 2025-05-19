@@ -46,3 +46,11 @@ export {
   findWorkoutsHistoryByUserId404Schema,
   findWorkoutsHistoryByUserIdQueryResponseSchema,
 } from './findWorkoutsHistoryByUserIdSchema'
+export {
+  updateWorkoutPathParamsSchema,
+  updateWorkout201Schema,
+  updateWorkout400Schema,
+  updateWorkout404Schema,
+  updateWorkoutMutationRequestSchema,
+  updateWorkoutMutationResponseSchema,
+} from './updateWorkoutSchema'

@@ -1,12 +1,12 @@
-export const createExerciseBodyDtoExecutionTypeEnum = {
+export const updateExerciseBodyDtoExecutionTypeEnum = {
   REPETITION: 'REPETITION',
   TIME: 'TIME',
 } as const
 
-export type CreateExerciseBodyDtoExecutionTypeEnumType =
-  (typeof createExerciseBodyDtoExecutionTypeEnum)[keyof typeof createExerciseBodyDtoExecutionTypeEnum]
+export type UpdateExerciseBodyDtoExecutionTypeEnumType =
+  (typeof updateExerciseBodyDtoExecutionTypeEnum)[keyof typeof updateExerciseBodyDtoExecutionTypeEnum]
 
-export const createExerciseBodyDtoMuscleTypeEnum = {
+export const updateExerciseBodyDtoMuscleTypeEnum = {
   CHEST: 'CHEST',
   BACK: 'BACK',
   BICEPS: 'BICEPS',
@@ -22,45 +22,45 @@ export const createExerciseBodyDtoMuscleTypeEnum = {
   ADDUCTORS_ABDUCTORS: 'ADDUCTORS_ABDUCTORS',
 } as const
 
-export type CreateExerciseBodyDtoMuscleTypeEnumType =
-  (typeof createExerciseBodyDtoMuscleTypeEnum)[keyof typeof createExerciseBodyDtoMuscleTypeEnum]
+export type UpdateExerciseBodyDtoMuscleTypeEnumType =
+  (typeof updateExerciseBodyDtoMuscleTypeEnum)[keyof typeof updateExerciseBodyDtoMuscleTypeEnum]
 
-export type CreateExerciseBodyDtoType = {
+export type UpdateExerciseBodyDtoType = {
   /**
    * @description The name of the exercise
-   * @type string
+   * @type string | undefined
    */
-  name: string
+  name?: string | undefined
   /**
    * @description A brief description of the exercise
-   * @type string
+   * @type string | undefined
    */
-  description: string
+  description?: string | undefined
   /**
    * @description Type of execution: repetition or time
-   * @type string
+   * @type string | undefined
    */
-  executionType: CreateExerciseBodyDtoExecutionTypeEnumType
+  executionType?: UpdateExerciseBodyDtoExecutionTypeEnumType | undefined
   /**
    * @description The muscle group targeted by the exercise
-   * @type string
+   * @type string | undefined
    */
-  muscleType: CreateExerciseBodyDtoMuscleTypeEnumType
+  muscleType?: UpdateExerciseBodyDtoMuscleTypeEnumType | undefined
   /**
    * @description Target number of repetitions
-   * @type number
+   * @type number | undefined
    */
-  targetRepetitions: number
+  targetRepetitions?: number | undefined
   /**
    * @description Target rest time between sets (in seconds)
-   * @type number
+   * @type number | undefined
    */
-  targetResTime: number
+  targetResTime?: number | undefined
   /**
    * @description Target number of sets
-   * @type number
+   * @type number | undefined
    */
-  targetSets: number
+  targetSets?: number | undefined
   /**
    * @description Optional video reference for the exercise
    * @type string | undefined

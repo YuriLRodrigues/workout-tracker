@@ -8,7 +8,21 @@ export const createExerciseBodyDtoSchema = z.object({
   description: z.coerce.string().describe('A brief description of the exercise'),
   executionType: z.enum(['REPETITION', 'TIME']).describe('Type of execution: repetition or time'),
   muscleType: z
-    .enum(['CHEST', 'BACK', 'BICEPS', 'TRICEPS', 'SHOULDERS', 'LEGS', 'CALVES', 'ABS', 'FULL_BODY'])
+    .enum([
+      'CHEST',
+      'BACK',
+      'BICEPS',
+      'TRICEPS',
+      'SHOULDERS',
+      'LEGS',
+      'CALVES',
+      'ABS',
+      'FULL_BODY',
+      'GLUTES',
+      'HAMSTRINGS',
+      'QUADRICEPS',
+      'ADDUCTORS_ABDUCTORS',
+    ])
     .describe('The muscle group targeted by the exercise'),
   targetRepetitions: z.coerce.number().describe('Target number of repetitions'),
   targetResTime: z.coerce.number().describe('Target rest time between sets (in seconds)'),

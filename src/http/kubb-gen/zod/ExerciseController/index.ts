@@ -29,3 +29,11 @@ export {
   findExerciseById404Schema,
   findExerciseByIdQueryResponseSchema,
 } from './findExerciseByIdSchema'
+export {
+  updateExercisePathParamsSchema,
+  updateExercise201Schema,
+  updateExercise400Schema,
+  updateExercise404Schema,
+  updateExerciseMutationRequestSchema,
+  updateExerciseMutationResponseSchema,
+} from './updateExerciseSchema'

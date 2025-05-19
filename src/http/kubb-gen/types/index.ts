@@ -276,10 +276,31 @@ export type {
   FindWorkoutsHistoryByUserIdQueryResponseType,
   FindWorkoutsHistoryByUserIdTypeQuery,
 } from './FindWorkoutsHistoryByUserIdType'
+export type { ForgotPasswordBodyDtoType } from './ForgotPasswordBodyDtoType'
+export type {
+  ForgotPassword200Type,
+  ForgotPassword400Type,
+  ForgotPassword404Type,
+  ForgotPasswordMutationRequestType,
+  ForgotPasswordMutationResponseType,
+  ForgotPasswordTypeMutation,
+} from './ForgotPasswordType'
+export type { ForgotResponseDtoType } from './ForgotResponseDtoType'
 export type { LogsExerciseExecutionTypeEnumType, LogsType } from './LogsType'
 export type { MeDtoGenderEnumType, MeDtoType } from './MeDtoType'
 export type { MetaDtoType } from './MetaDtoType'
 export type { Me200Type, Me400Type, Me404Type, MeQueryResponseType, MeTypeQuery } from './MeType'
+export type { NewPasswordBodyDtoType } from './NewPasswordBodyDtoType'
+export type { NewPasswordResponseDtoType } from './NewPasswordResponseDtoType'
+export type {
+  NewPasswordQueryParamsType,
+  NewPassword200Type,
+  NewPassword400Type,
+  NewPassword401Type,
+  NewPasswordMutationRequestType,
+  NewPasswordMutationResponseType,
+  NewPasswordTypeMutation,
+} from './NewPasswordType'
 export type { PaginatedDtoType } from './PaginatedDtoType'
 export type { PhysicalDtoType } from './PhysicalDtoType'
 export type { SessionDtoType } from './SessionDtoType'
@@ -304,9 +325,25 @@ export type {
   SignUpTypeMutation,
 } from './SignUpType'
 export type { SwaggerBadRequestDtoType } from './SwaggerBadRequestDtoType'
+export type { SwaggerInvalidPasswordResetTokenDtoType } from './SwaggerInvalidPasswordResetTokenDtoType'
 export type { SwaggerNotAllowedDtoType } from './SwaggerNotAllowedDtoType'
 export type { SwaggerResourceAlreadyExistsDtoType } from './SwaggerResourceAlreadyExistsDtoType'
 export type { SwaggerResourceNotFoundDtoType } from './SwaggerResourceNotFoundDtoType'
+export type {
+  UpdateExerciseBodyDtoExecutionTypeEnumType,
+  UpdateExerciseBodyDtoMuscleTypeEnumType,
+  UpdateExerciseBodyDtoType,
+} from './UpdateExerciseBodyDtoType'
+export type { UpdateExerciseResponseDtoType } from './UpdateExerciseResponseDtoType'
+export type {
+  UpdateExercisePathParamsType,
+  UpdateExercise201Type,
+  UpdateExercise400Type,
+  UpdateExercise404Type,
+  UpdateExerciseMutationRequestType,
+  UpdateExerciseMutationResponseType,
+  UpdateExerciseTypeMutation,
+} from './UpdateExerciseType'
 export type { UpdateImageResponseDtoType } from './UpdateImageResponseDtoType'
 export type {
   UpdateImagePathParamsType,
@@ -351,6 +388,17 @@ export type {
   UpdateSessionMutationResponseType,
   UpdateSessionTypeMutation,
 } from './UpdateSessionType'
+export type { UpdateWorkoutBodyDtoType } from './UpdateWorkoutBodyDtoType'
+export type { UpdateWorkoutResponseDtoType } from './UpdateWorkoutResponseDtoType'
+export type {
+  UpdateWorkoutPathParamsType,
+  UpdateWorkout201Type,
+  UpdateWorkout400Type,
+  UpdateWorkout404Type,
+  UpdateWorkoutMutationRequestType,
+  UpdateWorkoutMutationResponseType,
+  UpdateWorkoutTypeMutation,
+} from './UpdateWorkoutType'
 export type {
   UploadImagePathParamsType,
   UploadImage201Type,
@@ -369,4 +417,8 @@ export {
 export { exerciseDtoMuscleTypeEnum, exerciseDtoExecutionTypeEnum } from './ExerciseDtoType'
 export { logsExerciseExecutionTypeEnum } from './LogsType'
 export { meDtoGenderEnum } from './MeDtoType'
+export {
+  updateExerciseBodyDtoExecutionTypeEnum,
+  updateExerciseBodyDtoMuscleTypeEnum,
+} from './UpdateExerciseBodyDtoType'
 export { updatePersonalInfoBodyDtoGenderEnum } from './UpdatePersonalInfoBodyDtoType'

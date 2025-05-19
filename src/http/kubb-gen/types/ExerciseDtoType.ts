@@ -10,6 +10,10 @@ export const exerciseDtoMuscleTypeEnum = {
   CALVES: 'CALVES',
   ABS: 'ABS',
   FULL_BODY: 'FULL_BODY',
+  GLUTES: 'GLUTES',
+  HAMSTRINGS: 'HAMSTRINGS',
+  QUADRICEPS: 'QUADRICEPS',
+  ADDUCTORS_ABDUCTORS: 'ADDUCTORS_ABDUCTORS',
 } as const
 
 export type ExerciseDtoMuscleTypeEnumType = (typeof exerciseDtoMuscleTypeEnum)[keyof typeof exerciseDtoMuscleTypeEnum]

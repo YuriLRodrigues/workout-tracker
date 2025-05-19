@@ -5,6 +5,7 @@ import { findTotalAndAvgTimeByUserId } from './findTotalAndAvgTimeByUserId'
 import { findTotalWorkoutsCountByUserId } from './findTotalWorkoutsCountByUserId'
 import { findWorkoutById } from './findWorkoutById'
 import { findWorkoutsHistoryByUserId } from './findWorkoutsHistoryByUserId'
+import { updateWorkout } from './updateWorkout'
 
 export function workoutController() {
   return {
@@ -15,5 +16,6 @@ export function workoutController() {
     findWorkoutsHistoryByUserId,
     findTotalAndAvgTimeByUserId,
     findTotalWorkoutsCountByUserId,
+    updateWorkout,
   }
 }

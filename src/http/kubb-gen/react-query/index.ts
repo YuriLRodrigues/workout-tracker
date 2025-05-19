@@ -35,6 +35,7 @@ export type { FindTotalLoadByWeekQueryKey } from './SessionController/useFindTot
 export type { FindTotalLoadByWeekSuspenseQueryKey } from './SessionController/useFindTotalLoadByWeekSuspense'
 export type { FindTotalSeriesByWeekQueryKey } from './SessionController/useFindTotalSeriesByWeek'
 export type { FindTotalSeriesByWeekSuspenseQueryKey } from './SessionController/useFindTotalSeriesByWeekSuspense'
+export type { ForgotPasswordMutationKey } from './User - ControllerController/useForgotPassword'
 export type { DeleteUserMutationKey } from './UserController/useDeleteUser'
 export type { MeQueryKey } from './UserController/useMe'
 export type { MeSuspenseQueryKey } from './UserController/useMeSuspense'
@@ -201,6 +202,7 @@ export {
   findTotalSeriesByWeekSuspenseQueryOptions,
   useFindTotalSeriesByWeekSuspense,
 } from './SessionController/useFindTotalSeriesByWeekSuspense'
+export { forgotPasswordMutationKey, useForgotPassword } from './User - ControllerController/useForgotPassword'
 export { deleteUserMutationKey, useDeleteUser } from './UserController/useDeleteUser'
 export { meQueryKey, meQueryOptions, useMe } from './UserController/useMe'
 export { meSuspenseQueryKey, meSuspenseQueryOptions, useMeSuspense } from './UserController/useMeSuspense'

@@ -45,6 +45,14 @@ export {
   findExerciseById404Schema,
   findExerciseByIdQueryResponseSchema,
 } from './ExerciseController/findExerciseByIdSchema'
+export {
+  updateExercisePathParamsSchema,
+  updateExercise201Schema,
+  updateExercise400Schema,
+  updateExercise404Schema,
+  updateExerciseMutationRequestSchema,
+  updateExerciseMutationResponseSchema,
+} from './ExerciseController/updateExerciseSchema'
 export { exerciseDtoSchema } from './exerciseDtoSchema'
 export { exerciseLogsDtoSchema } from './exerciseLogsDtoSchema'
 export { findAllByUserIdDtoSchema } from './findAllByUserIdDtoSchema'
@@ -61,6 +69,8 @@ export { findTotalLoadByWeekDtoSchema } from './findTotalLoadByWeekDtoSchema'
 export { findTotalSeriesByWeekDtoSchema } from './findTotalSeriesByWeekDtoSchema'
 export { findTotalWorkoutsCountByUserIdResponseDtoSchema } from './findTotalWorkoutsCountByUserIdResponseDtoSchema'
 export { findWorkoutsHistoryByUserIdResponseDtoSchema } from './findWorkoutsHistoryByUserIdResponseDtoSchema'
+export { forgotPasswordBodyDtoSchema } from './forgotPasswordBodyDtoSchema'
+export { forgotResponseDtoSchema } from './forgotResponseDtoSchema'
 export {
   deleteImagePathParamsSchema,
   deleteImage200Schema,
@@ -125,6 +135,8 @@ export {
 export { logsSchema } from './logsSchema'
 export { meDtoSchema } from './meDtoSchema'
 export { metaDtoSchema } from './metaDtoSchema'
+export { newPasswordBodyDtoSchema } from './newPasswordBodyDtoSchema'
+export { newPasswordResponseDtoSchema } from './newPasswordResponseDtoSchema'
 export { paginatedDtoSchema } from './paginatedDtoSchema'
 export {
   createPhysical201Schema,
@@ -217,9 +229,12 @@ export { signInResponseDtoSchema } from './signInResponseDtoSchema'
 export { signUpBodyDtoSchema } from './signUpBodyDtoSchema'
 export { signUpResponseDtoSchema } from './signUpResponseDtoSchema'
 export { swaggerBadRequestDtoSchema } from './swaggerBadRequestDtoSchema'
+export { swaggerInvalidPasswordResetTokenDtoSchema } from './swaggerInvalidPasswordResetTokenDtoSchema'
 export { swaggerNotAllowedDtoSchema } from './swaggerNotAllowedDtoSchema'
 export { swaggerResourceAlreadyExistsDtoSchema } from './swaggerResourceAlreadyExistsDtoSchema'
 export { swaggerResourceNotFoundDtoSchema } from './swaggerResourceNotFoundDtoSchema'
+export { updateExerciseBodyDtoSchema } from './updateExerciseBodyDtoSchema'
+export { updateExerciseResponseDtoSchema } from './updateExerciseResponseDtoSchema'
 export { updateImageResponseDtoSchema } from './updateImageResponseDtoSchema'
 export { updatePersonalInfoBodyDtoSchema } from './updatePersonalInfoBodyDtoSchema'
 export { updatePersonalInfoResponseDtoSchema } from './updatePersonalInfoResponseDtoSchema'
@@ -227,7 +242,24 @@ export { updatePhysicalBodyDtoSchema } from './updatePhysicalBodyDtoSchema'
 export { updatePhysicalResponseDtoSchema } from './updatePhysicalResponseDtoSchema'
 export { updateSessionBodyDtoSchema } from './updateSessionBodyDtoSchema'
 export { updateSessionResponseDtoSchema } from './updateSessionResponseDtoSchema'
+export { updateWorkoutBodyDtoSchema } from './updateWorkoutBodyDtoSchema'
+export { updateWorkoutResponseDtoSchema } from './updateWorkoutResponseDtoSchema'
 export { uploadSchema } from './uploadSchema'
+export {
+  forgotPassword200Schema,
+  forgotPassword400Schema,
+  forgotPassword404Schema,
+  forgotPasswordMutationRequestSchema,
+  forgotPasswordMutationResponseSchema,
+} from './User - ControllerController/forgotPasswordSchema'
+export {
+  newPasswordQueryParamsSchema,
+  newPassword200Schema,
+  newPassword400Schema,
+  newPassword401Schema,
+  newPasswordMutationRequestSchema,
+  newPasswordMutationResponseSchema,
+} from './User - ControllerController/newPasswordSchema'
 export {
   changeMyUserPassword200Schema,
   changeMyUserPassword400Schema,
@@ -313,4 +345,12 @@ export {
   findWorkoutsHistoryByUserId404Schema,
   findWorkoutsHistoryByUserIdQueryResponseSchema,
 } from './WorkoutController/findWorkoutsHistoryByUserIdSchema'
+export {
+  updateWorkoutPathParamsSchema,
+  updateWorkout201Schema,
+  updateWorkout400Schema,
+  updateWorkout404Schema,
+  updateWorkoutMutationRequestSchema,
+  updateWorkoutMutationResponseSchema,
+} from './WorkoutController/updateWorkoutSchema'
 export { workoutDtoSchema } from './workoutDtoSchema'

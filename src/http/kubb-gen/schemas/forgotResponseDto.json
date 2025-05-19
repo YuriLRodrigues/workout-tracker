@@ -1,0 +1,1 @@
+{"type":"object","properties":{"message":{"type":"string","default":"Password recovery sent to your email"}},"required":["message"],"x-readme-ref-name":"ForgotResponseDto"}
