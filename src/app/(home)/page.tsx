@@ -1,3 +1,4 @@
+import PricingPlansSection from './components/pricing-plans-section'
 import { CtaSection } from '@/app/(home)/components/cta-section'
 import { FaqSection } from '@/app/(home)/components/faq-section'
 import { FeaturesSection } from '@/app/(home)/components/features-section'
@@ -12,7 +13,7 @@ export default function HomePage() {
       <HeroSection />
       <FeaturesSection />
       {/* <DemoSection /> */}
-      {/* <PricingSection /> */}
+      <PricingPlansSection />
       <TestimonialsSection />
       <FaqSection />
       <CtaSection />

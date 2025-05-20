@@ -1,3 +1,6 @@
+import { Button } from '@/components/ui/button'
+import { Icon } from '@/components/ui/icon'
+
 export function Footer() {
   return (
     <footer className="bg-background py-12">
@@ -6,6 +9,16 @@ export function Footer() {
           <p className="text-muted-foreground mx-auto text-sm">
             © {new Date().getFullYear()} WorkoutTracker. Todos os direitos reservados.
           </p>
+          <Button
+            className="text-muted-foreground mx-auto flex items-center gap-2 text-sm"
+            variant="link"
+            effect="hoverUnderline"
+          >
+            <Icon name="Computer" />
+            <a href="https://github.com/YuriLRodrigues" target="_blank" rel="noreferrer">
+              Desenvolvido por Yuri L. Rodrigues
+            </a>
+          </Button>
 
           {/* <div className="flex gap-6">
             <Link href="#" className="text-muted-foreground hover:text-primary text-sm">

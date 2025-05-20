@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -132,75 +132,153 @@
   }
 
   @keyframes fade {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
   @keyframes fade-up {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   @keyframes fade-down {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   @keyframes fade-left {
-    from { opacity: 0; transform: translateX(20px); }
-    to { opacity: 1; transform: translateX(0); }
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 
   @keyframes fade-right {
-    from { opacity: 0; transform: translateX(-20px); }
-    to { opacity: 1; transform: translateX(0); }
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 
   /* New animations for button effects */
   @keyframes shine {
-    0% { background-position: 200% 0; }
-    100% { background-position: -100% 0; }
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -100% 0;
+    }
   }
 
   @keyframes expand-icon-right {
-    from { width: 0; opacity: 0; transform: translateX(100%); }
-    to { width: 1.25rem; opacity: 1; transform: translateX(0); }
+    from {
+      width: 0;
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      width: 1.25rem;
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 
   @keyframes expand-icon-left {
-    from { width: 0; opacity: 0; transform: translateX(0); }
-    to { width: 1.25rem; opacity: 1; transform: translateX(100%); }
+    from {
+      width: 0;
+      opacity: 0;
+      transform: translateX(0);
+    }
+    to {
+      width: 1.25rem;
+      opacity: 1;
+      transform: translateX(100%);
+    }
   }
 
   @keyframes gooey-right {
-    from { transform: translate(150%, 150%) scale(2.5); }
-    to { transform: translate(0%, 0%) scale(2.5); }
+    from {
+      transform: translate(150%, 150%) scale(2.5);
+    }
+    to {
+      transform: translate(0%, 0%) scale(2.5);
+    }
   }
 
   @keyframes gooey-left {
-    from { transform: translate(-150%, 150%) scale(2.5); }
-    to { transform: translate(0%, 0%) scale(2.5); }
+    from {
+      transform: translate(-150%, 150%) scale(2.5);
+    }
+    to {
+      transform: translate(0%, 0%) scale(2.5);
+    }
   }
 
   @keyframes underline-out {
-    from { transform: scaleX(100%); transform-origin: left; }
-    to { transform: scaleX(0); transform-origin: right; }
+    from {
+      transform: scaleX(100%);
+      transform-origin: left;
+    }
+    to {
+      transform: scaleX(0);
+      transform-origin: right;
+    }
   }
 
   @keyframes underline-in {
-    from { transform: scaleX(0); transform-origin: right; }
-    to { transform: scaleX(100%); transform-origin: left; }
+    from {
+      transform: scaleX(0);
+      transform-origin: right;
+    }
+    to {
+      transform: scaleX(100%);
+      transform-origin: left;
+    }
   }
 
   @keyframes gradientFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 
   @keyframes trail {
-    0%: { --angle: 0deg; }
-    100%: { --angle: 360deg; }
+    0%: {
+      --angle: 0deg;
+    }
+    100%: {
+      --angle: 360deg;
+    }
   }
 
   --animate-trail: trail var(--duration) linear infinite;
@@ -223,66 +301,68 @@
   --animate-gradient-flow: gradientFlow 10s ease 0s infinite normal none running;
 
   @keyframes marquee {
-  from {
-    transform: translateX(0);
+    from {
+      transform: translateX(0);
     }
-  to {
-    transform: translateX(calc(-100% - var(--gap)));
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
     }
   }
   @keyframes marquee-vertical {
-  from {
-    transform: translateY(0);
+    from {
+      transform: translateY(0);
     }
-  to {
-    transform: translateY(calc(-100% - var(--gap)));
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
     }
   }
   --animate-shimmer-slide: shimmer-slide var(--speed) ease-in-out infinite alternate;
-  --animate-spin-around: spin-around calc(var(--speed) * 2) infinite linear
-;
+  --animate-spin-around: spin-around calc(var(--speed) * 2) infinite linear;
   @keyframes shimmer-slide {
-  to {
-    transform: translate(calc(100cqw - 100%), 0);
+    to {
+      transform: translate(calc(100cqw - 100%), 0);
     }
   }
   @keyframes spin-around {
-  0% {
-    transform: translateZ(0) rotate(0);
+    0% {
+      transform: translateZ(0) rotate(0);
     }
-  15%, 35% {
-    transform: translateZ(0) rotate(90deg);
+    15%,
+    35% {
+      transform: translateZ(0) rotate(90deg);
     }
-  65%, 85% {
-    transform: translateZ(0) rotate(270deg);
+    65%,
+    85% {
+      transform: translateZ(0) rotate(270deg);
     }
-  100% {
-    transform: translateZ(0) rotate(360deg);
+    100% {
+      transform: translateZ(0) rotate(360deg);
     }
   }
   --animate-aurora: aurora 8s ease-in-out infinite alternate;
   @keyframes aurora {
-  0% {
-    background-position: 0% 50%;
-    transform: rotate(-5deg) scale(0.9);
+    0% {
+      background-position: 0% 50%;
+      transform: rotate(-5deg) scale(0.9);
     }
-  25% {
-    background-position: 50% 100%;
-    transform: rotate(5deg) scale(1.1);
+    25% {
+      background-position: 50% 100%;
+      transform: rotate(5deg) scale(1.1);
     }
-  50% {
-    background-position: 100% 50%;
-    transform: rotate(-3deg) scale(0.95);
+    50% {
+      background-position: 100% 50%;
+      transform: rotate(-3deg) scale(0.95);
     }
-  75% {
-    background-position: 50% 0%;
-    transform: rotate(3deg) scale(1.05);
+    75% {
+      background-position: 50% 0%;
+      transform: rotate(3deg) scale(1.05);
     }
-  100% {
-    background-position: 0% 50%;
-    transform: rotate(-5deg) scale(0.9);
+    100% {
+      background-position: 0% 50%;
+      transform: rotate(-5deg) scale(0.9);
     }
-  }}
+  }
+}
 
 @layer base {
   * {
@@ -290,5 +370,53 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .premium-shine,
+  .personal-shine {
+    @apply relative isolate overflow-hidden;
+  }
+
+  .premium-shine::before {
+    content: '';
+    @apply pointer-events-none absolute -top-full -left-full z-[1] h-[300%] w-[300%];
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 215, 0, 0) 0%,
+      rgba(255, 215, 0, 0) 35%,
+      rgba(255, 215, 0, 0.4) 50%,
+      rgba(255, 215, 0, 0) 65%,
+      rgba(255, 215, 0, 0) 100%
+    );
+    transform: rotate(30deg);
+    animation: shine-effect 4s infinite cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  .personal-shine::before {
+    content: '';
+    @apply pointer-events-none absolute -top-full -left-full z-[1] h-[300%] w-[300%];
+    background: linear-gradient(
+      to bottom right,
+      rgba(100, 149, 237, 0) 0%,
+      rgba(100, 149, 237, 0) 35%,
+      rgba(100, 149, 237, 0.4) 50%,
+      rgba(100, 149, 237, 0) 65%,
+      rgba(100, 149, 237, 0) 100%
+    );
+    transform: rotate(30deg);
+    animation: shine-effect 4s infinite cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+}
+
+@layer utilities {
+  @keyframes shine-effect {
+    0% {
+      transform: translate(-100%, -100%) rotate(30deg);
+    }
+    100% {
+      transform: translate(100%, 100%) rotate(30deg);
+    }
   }
 }
