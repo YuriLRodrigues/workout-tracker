@@ -31,10 +31,8 @@ export const createOrUpdatePhysicalStatsActions = async ({
 
     if (data) {
       const { message } = await updatePhysical({ data: { age, goal, height, weight, bodyFat, muscleMass } })
-
       return { success: true, data: message }
     }
-
     const { message } = await createPhysical({ data: { age, goal, height, weight, bodyFat, muscleMass } })
     revalidateTag('findPhysicalStatsByUserId')
 

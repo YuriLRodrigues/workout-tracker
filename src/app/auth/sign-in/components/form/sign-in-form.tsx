@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Icon } from '@/components/ui/icon'
 import { Input } from '@/components/ui/input'
+import { RequiredFieldAsterisk } from '@/components/ui/required-field-asterisk'
 import { Separator } from '@/components/ui/separator'
 
 import { AnimatePresence, motion } from 'framer-motion'
@@ -26,7 +27,9 @@ export function SignInForm() {
             name="email"
             render={({ field }) => (
               <FormItem className="mb-4">
-                <FormLabel>E-mail</FormLabel>
+                <FormLabel>
+                  E-mail <RequiredFieldAsterisk />
+                </FormLabel>
                 <FormControl>
                   <Input placeholder="johndoe@example.com" {...field} />
                 </FormControl>
@@ -40,7 +43,9 @@ export function SignInForm() {
             render={({ field }) => (
               <FormItem className="mb-4">
                 <span className="flex items-center gap-2">
-                  <FormLabel className="font-semibold">Senha:</FormLabel>
+                  <FormLabel className="font-semibold">
+                    Senha <RequiredFieldAsterisk />
+                  </FormLabel>
                   <PasswordRulesTooltip password={form.watch('password')} />
                 </span>
                 <FormControl>

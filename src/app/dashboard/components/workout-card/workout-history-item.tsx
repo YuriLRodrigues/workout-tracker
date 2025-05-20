@@ -20,7 +20,7 @@ export function WorkoutHistoryItem({ name, icon, color, description, endTime, st
 
   return (
     <div className="hover:bg-muted/50 animate-fade-up animate-once flex flex-wrap items-center justify-between gap-4 p-4 transition-colors">
-      <div className="flex flex-wrap items-center gap-4">
+      <div className="flex flex-wrap items-center gap-2">
         <div className={`rounded-full p-2 ${color} bg-card`}>
           <Icon name={icon} className="h-5 w-5" />
         </div>

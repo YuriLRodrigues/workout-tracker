@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Icon } from '@/components/ui/icon'
 import { Input } from '@/components/ui/input'
+import { RequiredFieldAsterisk } from '@/components/ui/required-field-asterisk'
 
 import { AnimatePresence, motion } from 'framer-motion'
 
@@ -23,7 +24,9 @@ export const ForgotPasswordForm = () => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="font-semibold">E-mail:</FormLabel>
+                <FormLabel className="font-semibold">
+                  E-mail <RequiredFieldAsterisk />
+                </FormLabel>
                 <FormControl>
                   <Input {...field} />
                 </FormControl>

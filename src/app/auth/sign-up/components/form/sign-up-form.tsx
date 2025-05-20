@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Icon } from '@/components/ui/icon'
 import { Input } from '@/components/ui/input'
+import { RequiredFieldAsterisk } from '@/components/ui/required-field-asterisk'
 import { Separator } from '@/components/ui/separator'
 
 import { AnimatePresence, motion } from 'framer-motion'
@@ -27,7 +28,9 @@ export function SignUpForm() {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Nome</FormLabel>
+                  <FormLabel>
+                    Nome <RequiredFieldAsterisk />
+                  </FormLabel>
                   <FormControl>
                     <Input placeholder="John" {...field} />
                   </FormControl>
@@ -42,7 +45,9 @@ export function SignUpForm() {
               name="lastName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Sobrenome</FormLabel>
+                  <FormLabel>
+                    Sobrenome <RequiredFieldAsterisk />
+                  </FormLabel>
                   <FormControl>
                     <Input placeholder="Doe" {...field} />
                   </FormControl>
@@ -58,7 +63,9 @@ export function SignUpForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>E-mail</FormLabel>
+                <FormLabel>
+                  E-mail <RequiredFieldAsterisk />
+                </FormLabel>
                 <FormControl>
                   <Input placeholder="johndoe@example.com" {...field} />
                 </FormControl>
@@ -74,7 +81,9 @@ export function SignUpForm() {
             render={({ field }) => (
               <FormItem>
                 <span className="flex items-center gap-2">
-                  <FormLabel className="font-semibold">Senha:</FormLabel>
+                  <FormLabel className="font-semibold">
+                    Senha <RequiredFieldAsterisk />
+                  </FormLabel>
                   <PasswordRulesTooltip password={form.watch('password')} />
                 </span>
                 <FormControl>
@@ -92,7 +101,9 @@ export function SignUpForm() {
             render={({ field }) => (
               <FormItem>
                 <span className="flex items-center gap-2">
-                  <FormLabel className="font-semibold">Confirmação de senha:</FormLabel>
+                  <FormLabel className="font-semibold">
+                    Confirmação de senha <RequiredFieldAsterisk />
+                  </FormLabel>
                 </span>
                 <FormControl>
                   <InputPassword field={field} placeholder="********" />

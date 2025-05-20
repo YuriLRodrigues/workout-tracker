@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { NumberTicker } from '@/components/magicui/number-ticker'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
+import { ExpandableText } from '@/components/ui/expandable-text'
 import { Icon } from '@/components/ui/icon'
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 import { Skeleton } from '@/components/ui/skeleton'
@@ -37,10 +38,13 @@ export const HistoryList = async ({ limit, page, query }: HistoryListProps) => {
               <Icon name={h.icon as keyof typeof icons} className={cn('h-5 w-5', h.color)} />
             </div>
             <div>
-              <p className="line-clamp-2 font-medium first-letter:uppercase">{h.workoutName}</p>
-              <p className="text-muted-foreground line-clamp-2 text-sm first-letter:uppercase">
-                {h.workoutDescription}
-              </p>
+              <ExpandableText asChild maxLines={2} type="dot">
+                <p className="font-medium first-letter:uppercase">{h.workoutName}</p>
+              </ExpandableText>
+
+              <ExpandableText asChild maxLines={2} type="dot">
+                <p className="text-muted-foreground text-sm first-letter:uppercase">{h.workoutDescription}</p>
+              </ExpandableText>
             </div>
           </div>
 

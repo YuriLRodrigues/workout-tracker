@@ -6,6 +6,7 @@ import { InputPassword, PasswordRulesTooltip } from '@/components/interface/inpu
 import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Icon } from '@/components/ui/icon'
+import { RequiredFieldAsterisk } from '@/components/ui/required-field-asterisk'
 
 import { AnimatePresence, motion } from 'framer-motion'
 
@@ -24,7 +25,9 @@ export const NewPasswordForm = () => {
             render={({ field }) => (
               <FormItem>
                 <span className="flex items-center gap-2">
-                  <FormLabel className="font-semibold">Senha</FormLabel>
+                  <FormLabel className="font-semibold">
+                    Nova senha <RequiredFieldAsterisk />
+                  </FormLabel>
                   <PasswordRulesTooltip password={form.watch('newPassword')} />
                 </span>
                 <FormControl>
@@ -41,7 +44,9 @@ export const NewPasswordForm = () => {
             render={({ field }) => (
               <FormItem>
                 <span className="flex items-center gap-2">
-                  <FormLabel className="font-semibold">Confirme a sua senha</FormLabel>
+                  <FormLabel className="font-semibold">
+                    Confirme a sua nova senha <RequiredFieldAsterisk />
+                  </FormLabel>
                 </span>
                 <FormControl>
                   <InputPassword field={field} />
