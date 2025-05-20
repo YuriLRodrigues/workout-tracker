@@ -12,9 +12,9 @@ type WorkoutStartEndProps = {
 }
 
 export const WorkoutStartEnd = ({ totalExercises, totalCompleted }: WorkoutStartEndProps) => {
-  const { createSession, updateSession, data, formatted, isLoading, isSuccess } = useWorkoutStartEnd()
+  const { createSession, updateSession, data, formatted, isLoading, isSuccess, sessionIsLoading } = useWorkoutStartEnd()
 
-  if (isLoading || !isSuccess)
+  if (isLoading || sessionIsLoading || !isSuccess)
     return (
       <Button variant="default" className="group relative overflow-hidden" disabled>
         <Skeleton className="h-4 w-4" />

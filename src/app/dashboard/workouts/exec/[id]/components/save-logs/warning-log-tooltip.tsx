@@ -18,7 +18,7 @@ export function WarningLogTooltip() {
           <Button
             effect="shine"
             variant="outline"
-            className="group flex h-fit flex-wrap items-center gap-2"
+            className="group mx-auto flex h-fit w-fit flex-wrap items-center gap-2"
             onClick={toggleTooltip}
             onMouseLeave={closeTooltip}
           >
@@ -42,5 +42,22 @@ export function WarningLogTooltip() {
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>
+  )
+}
+
+export const WarningLogTooltipSkeleton = () => {
+  return (
+    <Button
+      effect="shine"
+      variant="outline"
+      disabled
+      className="group mx-auto flex h-fit w-fit flex-wrap items-center gap-2"
+    >
+      <Icon
+        name="CirclePlus"
+        className="h-4 w-4 text-zinc-950 transition-transform duration-200 group-data-expanded:rotate-90 dark:text-zinc-50"
+      />
+      <span className="text-wrap">Registrar execução</span>
+    </Button>
   )
 }

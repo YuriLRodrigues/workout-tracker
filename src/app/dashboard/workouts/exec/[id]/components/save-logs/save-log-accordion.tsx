@@ -1,3 +1,5 @@
+import { Suspense } from 'react'
+
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
 import { Icon } from '@/components/ui/icon'
@@ -8,7 +10,7 @@ import { findTodayWorkoutSession } from '@/http/kubb-gen'
 import { cn } from '@/lib/utils'
 
 import { SaveLogForm } from '.'
-import { WarningLogTooltip } from './warning-log-tooltip'
+import { WarningLogTooltip, WarningLogTooltipSkeleton } from './warning-log-tooltip'
 
 type SaveLogAccordionProps = {
   workoutId: string
@@ -20,7 +22,7 @@ export const SaveLogAccordion = async ({ workoutId, exerciseId, executionType }:
   const { data } = await findTodayWorkoutSession({ workoutId }, { next: { tags: ['findTodayWorkoutSession'] } })
   return (
     <>
-      {data?.startTime && (
+      {data && data.startTime && (
         <Accordion className="flex w-full flex-col" transition={{ type: 'tween', stiffness: 120, damping: 20 }}>
           <AccordionItem value="register-execution" className="space-y-4">
             <AccordionTrigger className="mx-auto w-fit">
@@ -45,11 +47,15 @@ export const SaveLogAccordion = async ({ workoutId, exerciseId, executionType }:
         </Accordion>
       )}
 
-      {!data?.startTime && <WarningLogTooltip />}
+      {(!data?.startTime || !data) && (
+        <Suspense fallback={<WarningLogTooltipSkeleton />}>
+          <WarningLogTooltip />
+        </Suspense>
+      )}
     </>
   )
 }
 
 export const SaveLogAccordionSkeleton = () => {
-  return <Skeleton className="h-9 w-32" />
+  return <Skeleton className="mx-auto h-9 w-32" />
 }
