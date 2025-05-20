@@ -14,6 +14,7 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
+  useSidebar,
 } from '@/components/ui/sidebar'
 import { Skeleton } from '@/components/ui/skeleton'
 
@@ -28,6 +29,7 @@ type SidebarMainProps = {
 
 export const SidebarMain = ({ userRole }: SidebarMainProps) => {
   const pathName = usePathname()
+  const { toggleSidebar } = useSidebar()
 
   return (
     <SidebarGroup>
@@ -69,6 +71,7 @@ export const SidebarMain = ({ userRole }: SidebarMainProps) => {
                               <Link
                                 href={subItem.href}
                                 className={cn(subItemIsLinkActive && 'bg-foreground/5 text-primary font-semibold')}
+                                onClick={toggleSidebar}
                               >
                                 <Icon name={subItem.iconName} />
                                 <span>{subItem.label}</span>
@@ -91,7 +94,11 @@ export const SidebarMain = ({ userRole }: SidebarMainProps) => {
                 asChild
                 className="hover:bg-foreground/10 hover:text-primary duration-200"
               >
-                <Link href={link.href!} className={cn(isLinkActive && 'bg-foreground/5 text-primary font-semibold')}>
+                <Link
+                  href={link.href!}
+                  className={cn(isLinkActive && 'bg-foreground/5 text-primary font-semibold')}
+                  onClick={toggleSidebar}
+                >
                   <Icon name={link.iconName} />
                   <span>{link.label}</span>
                 </Link>

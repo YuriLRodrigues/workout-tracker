@@ -20,7 +20,7 @@ export async function DashboardSidebar() {
       <SidebarTrigger
         icon={<Icon name="ArrowRight" className="size-8 font-bold" />}
         iconPlacement="right"
-        className="bg-primary text-primary-foreground absolute -right-2 bottom-[15%] z-[100] -ml-1 size-9 translate-y-1/2"
+        className="bg-primary text-primary-foreground absolute -right-4 bottom-[15%] z-[100] -ml-1 size-9 min-h-0 translate-y-1/2 transition-all"
       />
       <SidebarHeader>
         <Link
@@ -34,11 +34,7 @@ export async function DashboardSidebar() {
         </Link>
       </SidebarHeader>
       <div className="grid h-full max-h-full overflow-hidden">
-        <ScrollArea
-          className="max-h-[87vh] w-full flex-1 px-0 transition-all duration-300"
-          type="scroll"
-          scrollHideDelay={500}
-        >
+        <ScrollArea className="max-h-[87vh] w-full flex-1 px-0 duration-300" type="scroll" scrollHideDelay={500}>
           <SidebarContent>
             <SidebarMain userRole={(user.role as UserRoles) || undefined} />
           </SidebarContent>

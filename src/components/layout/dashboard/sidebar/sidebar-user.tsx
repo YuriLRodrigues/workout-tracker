@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { Fragment } from 'react'
 
+import { ThemeSwitcher } from '@/components/interface/theme-switcher'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
   DropdownMenu,
@@ -13,6 +14,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { Icon } from '@/components/ui/icon'
+import { Separator } from '@/components/ui/separator'
 import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from '@/components/ui/sidebar'
 import { Skeleton } from '@/components/ui/skeleton'
 
@@ -55,17 +57,25 @@ export function NavUser({
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuGroup>
+            <DropdownMenuGroup className="space-y-1">
               {dashboardProfileLinks.map((link) => (
                 <DropdownMenuItem key={link.label} asChild className="hover:cursor-pointer">
                   <Link href={link.href!}>
                     <Icon name={link.iconName} />
-                    {link.label}
+                    <span>{link.label}</span>
                   </Link>
                 </DropdownMenuItem>
               ))}
-              <DropdownMenuItem className="hover:bg-transparent dark:hover:bg-transparent">
-                <LogoutButton />
+              <div className="hover:bg-accent focus:text-accent-foreground flex items-center justify-between rounded-md px-2 py-1.5 text-sm outline-hidden select-none">
+                <div className="flex items-center gap-1">
+                  <Icon name="SunMoon" />
+                  <span>Tema</span>
+                </div>
+                <ThemeSwitcher className="h-6" />
+              </div>
+              <Separator />
+              <DropdownMenuItem className="p-0 px-1 py-2 hover:bg-transparent dark:hover:bg-transparent">
+                <LogoutButton className="m-0" />
               </DropdownMenuItem>
             </DropdownMenuGroup>
           </DropdownMenuContent>
