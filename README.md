@@ -1,36 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💪 Workout Tracker - Plataforma de Gestão de Treinos Pessoais (Frontend)
 
-## Getting Started
+O **Workout Tracker (Frontend)** é a interface web da plataforma de treinos, desenvolvida com **Next.js 15 + React 19**, voltada à **experiência do usuário final**, seja um aluno, personal trainer ou administrador.
 
-First, run the development server:
+A aplicação permite **criar, editar, visualizar e registrar treinos**, acompanhar métricas de desempenho, editar perfil, interagir com dashboards inteligentes, fazer upload de imagens e muito mais.
+
+Construída com **Server & Client Components**, **Cookies de autenticação**, **Tailwind CSS**, **React Query**, **T3-OSS**, e uma arquitetura limpa, a aplicação é **escalável, acessível, performática e responsiva**.
+
+---
+
+## 🚀 Funcionalidades Atuais
+
+- 🧑‍💻 Login e cadastro com JWT via cookies
+- ⚙️ Dashboard inteligente com KPIs e estatísticas de treino
+- 🏋️ Visualização e execução de treinos e exercícios
+- 📝 Criação e registro de logs de exercícios
+- 📈 Gráficos com progresso semanal/mensal
+- 👤 Perfil com avatar, dados físicos e informações pessoais
+- 🖼️ Upload de imagem de perfil via MinIO
+- 🧭 Navegação responsiva e fluida
+- 🔁 Gerenciamento de cache e requisições com React Query
+- 🧪 Testes automatizados com Jest e Cypress
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+| Tecnologia                                                                                                                                                                                                        | Descrição                                                       |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)                                                                                                        | **Next.js 15** — Framework React com renderização híbrida       |
+| ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)                                                                                                               | **React 19** — Biblioteca base para criação de interfaces       |
+| ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)                                                                                                 | **TypeScript** — Tipagem estática e robustez                    |
+| ![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)                                                                                            | **Tailwind CSS** — Estilização utilitária e responsiva          |
+| ![Shadcn/UI](https://img.shields.io/badge/shadcn/ui-18181B?style=for-the-badge)                                                                                                                                   | **shadcn/ui** — Design System baseado em Tailwind               |
+| ![Radix UI](https://img.shields.io/badge/Radix_UI-EF4444?style=for-the-badge)                                                                                                                                     | **Radix UI** — Componentes acessíveis e customizáveis           |
+| ![Lucide](https://img.shields.io/badge/lucide--icons-000000?style=for-the-badge)                                                                                                                                  | **Lucide Icons** — Ícones modernos e personalizáveis            |
+| ![React Hook Form](https://img.shields.io/badge/React--Hook--Form-EC5990?style=for-the-badge)                                                                                                                     | **React Hook Form** — Manipulação de formulários                |
+| ![Zod](https://img.shields.io/badge/zod-3A1C78?style=for-the-badge)                                                                                                                                               | **Zod** — Validação de schemas                                  |
+| ![React Query](https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&logo=reactquery&logoColor=white)                                                                                               | **React Query** — Gerenciamento de dados assíncronos            |
+| ![T3-OSS](https://img.shields.io/badge/T3--OSS-1F2937?style=for-the-badge)                                                                                                                                        | **T3 Stack** — Padrão de estrutura moderna para apps TypeScript |
+| ![Jest](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)                                                                                                                   | **Jest** — Testes unitários                                     |
+| ![date-fns](https://img.shields.io/badge/date--fns-008080?style=for-the-badge)                                                                                                                                    | **date-fns** — Manipulação de datas                             |
+| ![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white) ![Prettier](https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=black) | **ESLint + Prettier** — Qualidade e formatação de código        |
+| ![pnpm](https://img.shields.io/badge/pnpm-F69220?style=for-the-badge&logo=pnpm&logoColor=black)                                                                                                                   | **pnpm** — Gerenciador de pacotes                               |
+
+---
+
+## 📁 Estrutura de Pastas
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+src/
+├── app/
+│   ├── (home)/
+│   ├── auth/
+│   │   ├── components/
+│   │   ├── forgot-password/
+│   │   ├── new-password/
+│   │   ├── sign-in/
+│   │   ├── sign-up/
+│   │   └── layout.tsx
+│   ├── dashboard/
+│   │   ├── components/
+│   │   ├── history/
+│   │   ├── settings/
+│   │   ├── stats/
+│   │   ├── workouts/
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── not-found.tsx
+├── auth/
+├── components/
+├── context/
+├── hooks/
+├── http/
+├── lib/
+├── providers/
+├── utils/
+├── env.mjs
+└── middleware.ts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📦 Instalação
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm install
+pnpm generate # geração das chamadas de acordo com o swagger da API configurada no arquivo kubb.config.ts
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Desenvolvimento
 
-## Learn More
+```bash
+pnpm dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 🚨 Produção
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm build
+pnpm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔑 Variáveis de Ambiente
 
-## Deploy on Vercel
+Crie um arquivo .env.local com:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+NEXT_PUBLIC_API_URL=""
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🔮 Funcionalidades Futuras
+
+- 🎨 Personalização de cores e temas
+
+- 🔔 Notificações in-app
+
+- 📲 Versão mobile/PWA com push notifications
+
+- 📆 Calendário de treinos
+
+- 🧠 Recomendações de treino via IA
+
+- 👥 Relacionamento com outros usuários (personal, amigos)
+
+- 💳 Gestão de planos e pagamentos (Stripe)
+
+## 📬 Contato
+
+- **Autor**: 👨‍💻 [YuriLRodrigues](https://github.com/YuriLRodrigues)
+- **LinkedIn**: [Yuri Leite Rodrigues](https://www.linkedin.com/in/yuri-leite-rodrigues)
