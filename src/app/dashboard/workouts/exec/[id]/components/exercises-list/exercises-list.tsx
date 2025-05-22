@@ -100,7 +100,7 @@ export const NoExercisesFallback = ({ workoutId }: ExercisesListProps) => {
           <CardDescription>Parece que você não adicionou nenhum exercício ao seu treino ainda</CardDescription>
         </CardHeader>
         <CardContent className="mx-auto w-fit">
-          <Link href={`/dashboard/workouts/${workoutId}`}>
+          <Link href={`/dashboard/workouts/details/${workoutId}`}>
             <Button variant="outline" effect="shine" className="flex flex-wrap items-center gap-2">
               <Icon name="DiamondPlus" />
               <span className="text-wrap">Adicionar exercício</span>

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Icon } from '@/components/ui/icon'
 import { Input } from '@/components/ui/input'
+import { RequiredFieldAsterisk } from '@/components/ui/required-field-asterisk'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
 
@@ -27,7 +28,9 @@ export const CreateExerciseForm = () => {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Nome</FormLabel>
+                <FormLabel>
+                  Nome <RequiredFieldAsterisk />
+                </FormLabel>
                 <FormControl>
                   <Input placeholder="Elevação lateral" {...field} />
                 </FormControl>
@@ -42,7 +45,9 @@ export const CreateExerciseForm = () => {
             name="description"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Descrição</FormLabel>
+                <FormLabel>
+                  Descrição <RequiredFieldAsterisk />
+                </FormLabel>
                 <FormControl>
                   <Textarea
                     placeholder="Manter a postura correta durante toda a execução, evitar usar impulso para realizar as repetições e concentrar-se na contração muscular durante o exercício."
@@ -61,7 +66,9 @@ export const CreateExerciseForm = () => {
             name="executionType"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Tipo de execução</FormLabel>
+                <FormLabel>
+                  Tipo de execução <RequiredFieldAsterisk />
+                </FormLabel>
                 <Select onValueChange={field.onChange}>
                   <FormControl>
                     <SelectTrigger className="w-full min-w-0">
@@ -90,7 +97,9 @@ export const CreateExerciseForm = () => {
             name="muscleType"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Músculo</FormLabel>
+                <FormLabel>
+                  Músculo <RequiredFieldAsterisk />
+                </FormLabel>
                 <Select onValueChange={field.onChange}>
                   <FormControl>
                     <SelectTrigger className="w-full min-w-0">
@@ -119,7 +128,9 @@ export const CreateExerciseForm = () => {
             name="targetSets"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Séries</FormLabel>
+                <FormLabel>
+                  Séries <RequiredFieldAsterisk />
+                </FormLabel>
                 <FormControl>
                   <Input placeholder="Quantidade de séries planejadas para este exercício." type="number" {...field} />
                 </FormControl>
@@ -139,7 +150,8 @@ export const CreateExerciseForm = () => {
                     ? 'Repetições'
                     : exerciseType === ExecutionType.TIME
                       ? 'Tempo'
-                      : 'Repetições'}
+                      : 'Repetições'}{' '}
+                  <RequiredFieldAsterisk />
                 </FormLabel>
                 <FormControl>
                   <Input
@@ -165,7 +177,9 @@ export const CreateExerciseForm = () => {
             name="targetResTime"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Tempo de descanso (segundos)</FormLabel>
+                <FormLabel>
+                  Tempo de descanso (segundos) <RequiredFieldAsterisk />
+                </FormLabel>
                 <FormControl>
                   <Input placeholder="Tempo de descanso entre as séries, em segundos." type="number" {...field} />
                 </FormControl>

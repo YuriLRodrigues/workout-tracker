@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Icon } from '@/components/ui/icon'
 import { Input } from '@/components/ui/input'
+import { RequiredFieldAsterisk } from '@/components/ui/required-field-asterisk'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Textarea } from '@/components/ui/textarea'
 
@@ -33,7 +34,7 @@ export const SaveLogForm = ({ exerciseId, executionType }: SaveLogFormProps) => 
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="min-h-[25px]">
-                  {executionType === ExecutionType.TIME ? 'Tempo (segundos)' : 'Carga (kg)'}
+                  {executionType === ExecutionType.TIME ? 'Tempo (segundos)' : 'Carga (kg)'} <RequiredFieldAsterisk />
                 </FormLabel>
                 <FormControl>
                   <Input disabled={exerciseIsCompleted} placeholder="80" type="number" min={0} {...field} />
@@ -49,7 +50,9 @@ export const SaveLogForm = ({ exerciseId, executionType }: SaveLogFormProps) => 
             name="maxSeries"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="min-h-[25px]">Séries</FormLabel>
+                <FormLabel className="min-h-[25px]">
+                  Séries <RequiredFieldAsterisk />
+                </FormLabel>
                 <FormControl>
                   <Input disabled={exerciseIsCompleted} placeholder="4" type="number" min={0} {...field} {...field} />
                 </FormControl>
@@ -64,7 +67,9 @@ export const SaveLogForm = ({ exerciseId, executionType }: SaveLogFormProps) => 
             name="maxRepeat"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="min-h-[25px]">Repetições</FormLabel>
+                <FormLabel className="min-h-[25px]">
+                  Repetições <RequiredFieldAsterisk />
+                </FormLabel>
                 <FormControl>
                   <Input disabled={exerciseIsCompleted} placeholder="12" type="number" min={0} {...field} {...field} />
                 </FormControl>
@@ -79,7 +84,9 @@ export const SaveLogForm = ({ exerciseId, executionType }: SaveLogFormProps) => 
             name="averageRestTime"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="min-h-[25px]">Tempo de descanso (segundos)</FormLabel>
+                <FormLabel className="min-h-[25px]">
+                  Tempo de descanso (segundos) <RequiredFieldAsterisk />
+                </FormLabel>
                 <FormControl>
                   <Input disabled={exerciseIsCompleted} placeholder="60" type="number" min={0} {...field} {...field} />
                 </FormControl>

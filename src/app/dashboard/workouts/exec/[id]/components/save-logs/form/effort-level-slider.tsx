@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 
 import { Label } from '@/components/ui/label'
+import { RequiredFieldAsterisk } from '@/components/ui/required-field-asterisk'
 import { Slider } from '@/components/ui/slider'
 
 interface EffortLevelSliderProps {
@@ -42,7 +43,9 @@ export const EffortLevelSlider = ({ value, onChange }: EffortLevelSliderProps) =
 
   return (
     <div className="mb-3 space-y-1 @xs:col-span-2">
-      <Label className="mb-3">Nível de esforço:</Label>
+      <Label className="mb-3">
+        Nível de esforço <RequiredFieldAsterisk />
+      </Label>
       <div className="flex flex-wrap items-center justify-between gap-1">
         <Slider value={[value]} min={1} max={10} step={1} onValueChange={handleChange} className="w-full" />
         <span className="text-lg font-bold">{value}/10</span>
