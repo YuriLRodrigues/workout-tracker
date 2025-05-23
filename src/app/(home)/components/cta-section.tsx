@@ -22,7 +22,7 @@ export function CtaSection() {
 
         <Animate direction="right" type="slide" className="mx-auto w-fit">
           <Button size="lg" asChild>
-            <Link href="/auth/sign-in">
+            <Link href="/dashboard">
               Começar Agora
               <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>

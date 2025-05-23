@@ -35,7 +35,7 @@ export function HeroSection() {
                 effect="ringHover"
                 className="group animate-infinite animate-duration-[3000ms] animate-pulse"
               >
-                <Link href="/auth/sign-in">
+                <Link href="/dashboard">
                   Começar Agora
                   <Icon name="ChevronRight" className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>

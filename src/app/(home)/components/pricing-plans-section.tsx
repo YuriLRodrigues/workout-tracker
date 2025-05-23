@@ -3,6 +3,7 @@
 import { useState } from 'react'
 
 import Animate from '@/components/ui/animate'
+import { Button } from '@/components/ui/button'
 
 import { cn } from '@/lib/utils'
 import { Check } from 'lucide-react'
@@ -164,16 +165,17 @@ export default function PricingPlansSection() {
                   ))}
                 </ul>
                 <div className="mt-auto">
-                  <button
+                  <Button
+                    disabled
                     className={cn(
-                      'w-full rounded-lg px-4 py-2 text-sm font-medium transition-colors',
+                      'w-full rounded-lg px-4 py-2 text-sm font-medium transition-colors hover:cursor-pointer',
                       plan.highlighted
                         ? 'bg-primary text-primary-foreground hover:bg-primary/90'
                         : 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
                     )}
                   >
                     {plan.buttonText}
-                  </button>
+                  </Button>
                 </div>
               </div>
             </Animate>

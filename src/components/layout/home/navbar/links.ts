@@ -38,12 +38,18 @@ export const navbarLinks: NavbarLinksProps[] = [
     highlight: true,
     iconName: 'LogIn',
   },
+  {
+    href: '/dashboard',
+    label: 'Painel',
+    permissionRoles: [UserRoles.MANAGER, UserRoles.PERSONAL, UserRoles.USER],
+    iconName: 'LayoutDashboard',
+  },
 ]
 
 export const profileLinks: NavbarLinksProps[] = [
   {
     href: '/dashboard',
-    label: 'Dashboard',
+    label: 'Painel',
     iconName: 'LayoutDashboard',
     permissionRoles: [UserRoles.MANAGER, UserRoles.USER, UserRoles.PERSONAL],
   },
