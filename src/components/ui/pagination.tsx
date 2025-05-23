@@ -22,7 +22,7 @@ export const Pagination = ({ page, totalCount, totalPages }: PaginationProps) =>
   // const pages = Math.ceil(totalCount / perPage) || 1
 
   return (
-    <div className="mt-auto flex items-center justify-between gap-y-2 max-sm:flex-col">
+    <div className="my-3 flex items-center justify-between gap-y-2 max-sm:flex-col">
       <span className="text-muted-foreground text-sm max-sm:order-last max-sm:text-xs">
         Total de {totalCount} item(s)
       </span>

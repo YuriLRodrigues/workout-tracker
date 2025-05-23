@@ -28,7 +28,7 @@ export const useWorkoutStartEnd = () => {
   const createSession = async () => {
     setSessionIsLoading(true)
     await createSessionActions({ workoutId: id })
-    await queryClient.refetchQueries({ queryKey: ['findTodayWorkoutSession', id] })
+    await queryClient.invalidateQueries({ queryKey: ['findTodayWorkoutSession', id], exact: true, type: 'all' })
     setSessionIsLoading(false)
     return
   }
@@ -37,7 +37,7 @@ export const useWorkoutStartEnd = () => {
     if (!sessionId) return
     setSessionIsLoading(true)
     await updateSessionActions({ sessionId, workoutId: id })
-    await queryClient.refetchQueries({ queryKey: ['findTodayWorkoutSession', id] })
+    await queryClient.invalidateQueries({ queryKey: ['findTodayWorkoutSession', id], exact: true, type: 'all' })
     setSessionIsLoading(false)
     return
   }

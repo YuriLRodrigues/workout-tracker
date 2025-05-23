@@ -43,7 +43,10 @@ export const WorkoutStartEnd = ({ totalExercises, totalCompleted }: WorkoutStart
           onClick={() => updateSession(data?.id)}
         >
           <Icon name="CircleStop" />
-          <span className="text-wrap">Finalizar treino</span>
+          {totalCompleted !== totalExercises && (
+            <span className="text-wrap">Finalizar treino (execuções obrigatórias)</span>
+          )}
+          {totalCompleted === totalExercises && <span className="text-wrap">Finalizar treino (disponível)</span>}
         </Button>
       )}
       {data?.startTime && data?.endTime && (
