@@ -19,7 +19,7 @@ export const updateSessionActions = async ({
   try {
     const { message } = await updateSession({ data: { workoutId }, sessionId })
 
-    revalidateTag('findTodaySession')
+    revalidateTag('findTodayWorkoutSession')
 
     return { success: true, data: message }
   } catch (error) {

@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Progress } from '@/components/ui/progress'
 import { Skeleton } from '@/components/ui/skeleton'
 
-import { findAllLogsToday } from '@/http/kubb-gen'
+import { findAllLogsToday, findTodayWorkoutSession } from '@/http/kubb-gen'
 
 import { WorkoutStartEnd } from './workout-start-end'
 
@@ -16,6 +16,8 @@ export const WorkoutProgress = async ({ workoutId }: WorkoutProgressProps) => {
     { next: { tags: ['findAllLogsToday'] } },
   )
 
+  const { data } = await findTodayWorkoutSession({ workoutId }, { next: { tags: ['findTodayWorkoutSession'] } })
+
   return (
     <Card className="from-background to-muted/30 overflow-hidden border-none bg-gradient-to-br shadow-md">
       <CardHeader>
@@ -26,7 +28,7 @@ export const WorkoutProgress = async ({ workoutId }: WorkoutProgressProps) => {
       </CardHeader>
       <CardContent className="space-y-3">
         <Progress value={(totalCompleted / totalExercises) * 100} className="h-2" indicatorClassName="bg-green-600" />
-        <WorkoutStartEnd totalExercises={totalExercises} totalCompleted={totalCompleted} />
+        <WorkoutStartEnd totalExercises={totalExercises} totalCompleted={totalCompleted} sessionHasStarted={data} />
       </CardContent>
     </Card>
   )

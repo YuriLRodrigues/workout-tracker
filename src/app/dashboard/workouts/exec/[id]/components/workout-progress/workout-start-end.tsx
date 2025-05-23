@@ -9,12 +9,17 @@ import { useWorkoutStartEnd } from './use-start-end-workout'
 type WorkoutStartEndProps = {
   totalExercises: number
   totalCompleted: number
+  sessionHasStarted?: {
+    startTime?: Date | string
+    endTime?: Date | string
+    id?: string
+  } | null
 }
 
-export const WorkoutStartEnd = ({ totalExercises, totalCompleted }: WorkoutStartEndProps) => {
-  const { createSession, updateSession, data, formatted, isLoading, isSuccess, sessionIsLoading } = useWorkoutStartEnd()
+export const WorkoutStartEnd = ({ totalExercises, totalCompleted, sessionHasStarted }: WorkoutStartEndProps) => {
+  const { createSession, updateSession, formatted, sessionIsLoading } = useWorkoutStartEnd({ sessionHasStarted })
 
-  if (isLoading || sessionIsLoading || !isSuccess)
+  if (sessionIsLoading)
     return (
       <Button variant="default" className="group relative overflow-hidden" disabled>
         <Skeleton className="h-4 w-4" />
@@ -24,7 +29,7 @@ export const WorkoutStartEnd = ({ totalExercises, totalCompleted }: WorkoutStart
 
   return (
     <div>
-      {(!data?.startTime || !data) && (
+      {(!sessionHasStarted?.startTime || !sessionHasStarted) && (
         <Button
           variant="default"
           className="group relative overflow-hidden text-wrap"
@@ -35,12 +40,12 @@ export const WorkoutStartEnd = ({ totalExercises, totalCompleted }: WorkoutStart
           <span className="text-wrap">Iniciar treino</span>
         </Button>
       )}
-      {data?.startTime && !data?.endTime && (
+      {sessionHasStarted?.startTime && !sessionHasStarted?.endTime && (
         <Button
           variant="default"
           className="group relative overflow-hidden text-wrap"
           disabled={totalCompleted !== totalExercises}
-          onClick={() => updateSession(data?.id)}
+          onClick={() => updateSession(sessionHasStarted?.id)}
         >
           <Icon name="CircleStop" />
           {totalCompleted !== totalExercises && (
@@ -49,7 +54,7 @@ export const WorkoutStartEnd = ({ totalExercises, totalCompleted }: WorkoutStart
           {totalCompleted === totalExercises && <span className="text-wrap">Finalizar treino (disponível)</span>}
         </Button>
       )}
-      {data?.startTime && data?.endTime && (
+      {sessionHasStarted?.startTime && sessionHasStarted?.endTime && (
         <Button
           disabled
           variant="default"
