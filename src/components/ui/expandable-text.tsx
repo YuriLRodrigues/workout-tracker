@@ -65,7 +65,7 @@ export function ExpandableText({
   const Comp = asChild ? Slot : 'div'
 
   return (
-    <div ref={containerRef} className={cn('relative', className)}>
+    <div ref={containerRef} className={cn('relative break-all', className)}>
       {/* Texto visível (potencialmente truncado) */}
       <div className="relative">
         <div
@@ -75,7 +75,7 @@ export function ExpandableText({
             type === 'dot' && !isExpanded && isTruncated && 'pr-6',
           )}
         >
-          <Comp>{children}</Comp>
+          <Comp className="break-all">{children}</Comp>
         </div>
 
         {/* Botões de controle */}
@@ -120,7 +120,7 @@ export function ExpandableText({
         }}
         aria-hidden="true"
       >
-        <Comp>{children}</Comp>
+        <Comp className="break-all">{children}</Comp>
       </div>
     </div>
   )
